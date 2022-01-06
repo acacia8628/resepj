@@ -41,7 +41,27 @@
                             </div>
                             <div class="card__text-box">
                                 <h2 class="card__name">{{$shop->name}}</h2>
-                                <p class="card__area">#{{$shop->area_id}}</p>
+                                <div class="card__hash">
+                                    <p class="card__hash--area">#{{$shop->area->name}}</p>
+                                    <p class="card__hash--genre">#{{$shop->genre->name}}</p>
+                                </div>
+                                <div class="card__action">
+                                    <button class="card__action--button">詳しく見る</button>
+                                    @if($shop->is_liked_by_auth_user())
+                                    <form method="POST" action="{{ route('likes.destroy', $shop->id) }}" class="card__action--like-box">
+                                        @csrf
+                                        <img class="card__action--like" src="/image/heart2.png">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <input class="card__action--like-input" type="submit" name="shopId">
+                                    </form>
+                                    @else
+                                    <form method="POST" action="{{ route('likes.store') }}" class="card__action--like-box">
+                                        @csrf
+                                        <img class="card__action--like" src="/image/heart.png">
+                                        <input class="card__action--like-input" type="submit" name="shopId" value="{{$shop->id}}">
+                                    </form>
+                                    @endif
+                                </div>
                             </div>
                         </div>
                     @endforeach
@@ -76,7 +96,6 @@
     }
     .card {
         width: 24%;
-        cursor: pointer;
         border-radius: 3px;
         box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
         margin-bottom: 30px;
@@ -92,11 +111,45 @@
         object-fit: cover;
         border-radius: 3px 3px 0 0;
     }
-    .card__name{
-
+    .card__hash{
+        display: flex;
     }
-    .card__area{
+    .card__hash--area,
+    .card__hash--genre{
         font-size: 10px;
-        margin-top: 5px;
+        margin: 5px 3px 0 0;
+    }
+    .card__action{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    .card__action--button{
+        background-color: #305DFF;
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 6px;
+        display: block;
+        font-size: 12px;
+        border: none;
+        cursor: pointer;
+    }
+    .card__action--like-box{
+        position: relative;
+    }
+    .card__action--like{
+        width: 25px;
+        height: 25px;
+    }
+    .card__action--like-input{
+        opacity: 0;
+        position: absolute;
+        cursor: pointer;
+        width: 25px;
+        height: 25px;
+        top: 0;
+        left: 0;
+        z-index: 2;
     }
 </style>

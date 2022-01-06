@@ -16,9 +16,30 @@ class ShopController extends Controller
      */
     public function index(Request $request)
     {
-        $query = $request->query();
+        $query = Shop::query();
 
-        $shops = Shop::with(["area","genre"])->get();
+        $shopname = $request->input('shopname');
+        $area = $request->input('area');
+        $genre = $request->input('genre');
+
+        $query->join('areas',function($query)use($request){
+            $query->on('shops.area_id','=','areas.id');
+        });
+        $query->join('genres',function($query)use($request){
+            $query->on('shops.genre_id','=','genres.id');
+        });
+
+        if(!empty($shopname)){
+            $query->where('shopname', 'like', '%'.$shopname.'%');
+        }
+        if(!empty($area)){
+            $query->where('area', 'like', '%'.$area.'%');
+        }
+        if(!empty($genre)){
+            $query->where('genre', 'like', '%'.$genre.'%');
+        }
+
+        $shops = Shop::with(["area","genre","likes"])->get();
         $genres = Genre::all();
         $areas = Area::all();
 
