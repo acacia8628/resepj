@@ -7,17 +7,17 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ThanksController;
 
-Route::get('/done',[ReserveController::class,'index'])->name(
-    'reserve.index'
-);
 Route::get('/',[ShopController::class,'index'])->name(
     'shop.index'
 );
+Route::get('/done',[ReserveController::class,'index'])->name(
+    'reserve.index'
+);
+Route::get('/detail/{shop_id}',[ShopController::class,'show'])->name(
+    'shop.show'
+);
 Route::resource('users',UserController::class)->only([
     'index'
-]);
-Route::resource('shops',ShopController::class)->only([
-    'show'
 ]);
 Route::resource('likes',LikeController::class)->only([
     'store','destroy'

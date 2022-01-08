@@ -6,9 +6,7 @@
                 <form method="GET" action="{{ route('shop.index') }}" class="search-form">
                     @csrf
                     <select id="area" class="search__area">
-                        <option value="">
-                            All area<span><img src="/image/list.png"></span>
-                        </option>
+                        <option value="">All area</option>
                         @foreach($areas as $area)
                             <option value="{{$area->id}}" id="{{$area->id}}">
                                 {{$area->name}}
@@ -16,9 +14,7 @@
                         @endforeach
                     </select>
                     <select id="genre" class="search__genre">
-                        <option value="">
-                            All genre<span><img src="/image/list.png"></span>
-                        </option>
+                        <option value="">All genre</option>
                         @foreach($genres as $genre)
                             <option value="{{$genre->id}}" id="{{$genre->id}}">
                                 {{$genre->name}}
@@ -46,7 +42,10 @@
                                     <p class="card__hash--genre">#{{$shop->genre->name}}</p>
                                 </div>
                                 <div class="card__action">
-                                    <button class="card__action--button">詳しく見る</button>
+                                    <form method="GET" action="{{ route('shop.show',$shop->id) }}">
+                                        @csrf
+                                        <button class="card__action--button">詳しく見る</button>
+                                    </form>
                                     @if($shop->is_liked_by_auth_user())
                                     <form method="POST" action="{{ route('likes.destroy', $shop->id) }}" class="card__action--like-box">
                                         @csrf
