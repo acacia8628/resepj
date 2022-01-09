@@ -51,13 +51,13 @@
                                         @csrf
                                         <img class="card__action--like" src="/image/heart2.png">
                                         <input type="hidden" name="_method" value="DELETE">
-                                        <input class="card__action--like-input" type="submit" name="shopId">
+                                        <input class="card__action--like-input" type="submit" name="shop_id">
                                     </form>
                                     @else
                                     <form method="POST" action="{{ route('likes.store') }}" class="card__action--like-box">
                                         @csrf
                                         <img class="card__action--like" src="/image/heart.png">
-                                        <input class="card__action--like-input" type="submit" name="shopId" value="{{$shop->id}}">
+                                        <input class="card__action--like-input" type="submit" name="shop_id" value="{{$shop->id}}">
                                     </form>
                                     @endif
                                 </div>

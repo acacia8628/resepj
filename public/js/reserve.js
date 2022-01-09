@@ -1,6 +1,5 @@
 function inputDate() {
-  const inputValue = document.getElementById('inputDate').value;
-  console.log(inputValue);
+  const inputValue = document.getElementById('r_date').value;
   document.getElementById('date').innerHTML = inputValue;
 }
 

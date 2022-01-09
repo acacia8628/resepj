@@ -14,9 +14,9 @@ class Reserve extends Model
     protected $fillable = [
         'user_id',
         'shop_id',
-        'reserveDate',
-        'reserveTime',
-        'reserveNumber'
+        'reserve_date',
+        'reserve_time',
+        'reserve_number'
     ];
 
     public function user()

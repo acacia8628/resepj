@@ -10,15 +10,15 @@ use App\Http\Controllers\ThanksController;
 Route::get('/',[ShopController::class,'index'])->name(
     'shop.index'
 );
-Route::get('/done',[ReserveController::class,'index'])->name(
-    'reserve.index'
-);
 Route::get('/detail/{shop_id}',[ShopController::class,'show'])->name(
     'shop.show'
 );
-Route::resource('users',UserController::class)->only([
-    'index'
-]);
+Route::get('/done',[ReserveController::class,'index'])->name(
+    'reserve.index'
+);
+Route::get('/mypage',[UserController::class,'index'])->name(
+    'user.index'
+);
 Route::resource('likes',LikeController::class)->only([
     'store','destroy'
 ]);

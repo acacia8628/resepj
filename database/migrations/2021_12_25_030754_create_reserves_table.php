@@ -17,9 +17,9 @@ class CreateReservesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->foreignId('shop_id')->constrained('shops')->onDelete('cascade');
-            $table->date('reserveDate');
-            $table->time('reserveTime');
-            $table->integer('reserveNumber');
+            $table->date('reserve_date');
+            $table->time('reserve_time');
+            $table->integer('reserve_number');
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

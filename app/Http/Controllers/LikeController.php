@@ -15,14 +15,14 @@ class LikeController extends Controller
     public function store(Request $request)
     {
         if(Auth::check()){
-            $userId = Auth::id();
-            $shopId = $request->input('shopId');
+            $user_id = Auth::id();
+            $shop_id = $request->input('shop_id');
 
-            $insert = Like::create([
-                'user_id' => $userId,
-                'shop_id' => $shopId,
+            $items = Like::create([
+                'user_id' => $user_id,
+                'shop_id' => $shop_id,
             ]);
-            return redirect('/');
+            return redirect()->back();
         } else {
             return view('login');
         }
@@ -31,12 +31,12 @@ class LikeController extends Controller
     public function destroy($id)
     {
         if(Auth::check()){
-            $userId = Auth::id();
-            $shopId = $id;
+            $user_id = Auth::id();
+            $shop_id = $id;
 
-            $item = Like::where('user_id',$userId)->where('shop_id',$shopId)->first();
+            $item = Like::where('user_id',$user_id)->where('shop_id',$shop_id)->first();
             $item->delete();
-            return redirect('/');
+            return redirect()->back();
         }
     }
 }

@@ -7,9 +7,9 @@
             <div class="content">
               <div class="detail">
                 <div class="detail-ttl">
-                  <div class="detail-ttl__back">
-                    ＜
-                  </div>
+                  <button type="button" onClick="history.back()" class="detail-ttl__back">
+                    <
+                  </button>
                   <h2 class="detail-ttl__ttl">{{$shop->name}}</h2>
                 </div>
                 <img src="{{$shop->img_url}}" class="detail-img">
@@ -22,15 +22,17 @@
                 </div>
               </div>
               <form method="POST" action="{{ route('reserves.store') }}" class="reserve">
+                @csrf
                 <h2 class="reserve-ttl">予約</h2>
+                <input type="hidden" name="shop_id" value="{{$shop->id}}">
                 <div class="reserve-input-box">
-                  <input type="date" name="reserve_date"
-                            id="inputDate"
-                            onchange="inputDate();"
+                  <input type="date" name="r_date"
+                            id="r_date"
+                            onchange="inputDate()"
                             class="reserve-input">
                 </div>
                 <div class="reserve-input-box">
-                  <select name="reserve_time" onchange="inputTime(this);" class="reserve-input__time">
+                  <select name="r_time" onchange="inputTime(this);" class="reserve-input__time">
                     <option value="17:00">17:00</option>
                     <option value="17:30">17:30</option>
                     <option value="18:00">18:00</option>
@@ -44,45 +46,46 @@
                   </select>
                 </div>
                 <div class="reserve-input-box">
-                  <select name="reserve_number" onchange="inputNumber(this);" class="reserve-input__number">
+                  <select name="r_number" onchange="inputNumber(this);" class="reserve-input__number">
                     <option value="1">1人</option>
                     <option value="2">2人</option>
                     <option value="3">3人</option>
                     <option value="4">4人</option>
                     <option value="5">5人</option>
-                    <option value="1">6人</option>
-                    <option value="2">7人</option>
-                    <option value="3">8人</option>
-                    <option value="4">9人</option>
-                    <option value="5">10人</option>
+                    <option value="6">6人</option>
+                    <option value="7">7人</option>
+                    <option value="8">8人</option>
+                    <option value="9">9人</option>
+                    <option value="10">10人</option>
                   </select>
                 </div>
                 <div class="check">
-                  <table>
+                  <table class="table">
                     <tr>
-                      <th>Shop</th>
-                      <td>{{$shop->name}}</td>
+                      <th class="th">Shop</th>
+                      <td class="td">{{$shop->name}}</td>
                     </tr>
                     <tr>
-                      <th>Date</th>
-                      <td>
+                      <th class="th">Date</th>
+                      <td class="td">
                         <div id="date"></div>
                       </td>
                     </tr>
                     <tr>
-                      <th>Time</th>
-                      <td>
+                      <th class="th">Time</th>
+                      <td class="td">
                         <div id="time"></div>
                       </td>
                     </tr>
                     <tr>
-                      <th>Number</th>
-                      <td>
+                      <th class="th">Number</th>
+                      <td class="td">
                         <div id="number"></div>
                       </td>
                     </tr>
                   </table>
                 </div>
+                <button type="submit" class="reserve-button">予約する</button>
               </form>
             </div>
         </x-slot>
@@ -108,11 +111,13 @@
       margin-bottom: 20px;
     }
     .detail-ttl__back{
-      padding: 5px;
+      padding: 5px 10px;
       background-color: #fff;
+      border: none;
       border-radius: 3px;
       box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
       margin-right: 15px;
+      cursor: pointer;
     }
     .detail-ttl__ttl{
       font-size: 32px;
@@ -133,11 +138,13 @@
       line-height: 1.4em;
     }
     .reserve{
+      position: relative;
       background-color: #305dff;
       height: 80vh;
       width: 42%;
       margin: 0 5% 0 auto;
       border-radius: 5px;
+      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
     }
     .reserve-ttl{
       color: #fff;
@@ -159,5 +166,32 @@
     .reserve-input__number{
       width: 100%;
       box-sizing: border-box;
+    }
+    .check{
+      margin: 30px 20px;
+      padding: 20px;
+      background-color: #4d7fff;
+      border-radius: 5px;
+    }
+    .table{
+      color: #fff;
+    }
+    .th,
+    .td{
+      padding: 5px;
+      text-align: left;
+      font-size: 14px;
+    }
+    .reserve-button{
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      border: none;
+      border-radius: 0 0 5px 5px;
+      background-color: #0538ff;
+      color: #fff;
+      font-size: 14px;
+      padding: 20px;
+      cursor: pointer;
     }
 </style>
