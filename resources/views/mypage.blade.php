@@ -34,7 +34,7 @@
                   </table>
                   <form method="POST" action="{{ route('reserves.destroy', $reserve->id) }}" class="reserve-delete">
                       @csrf
-                      <img class="reserve-delete__img" src="/image/close.png">
+                      <img class="reserve-delete__img" src="/image/delete.png">
                       <input type="hidden" name="_method" value="DELETE">
                       <input class="reserve-delete__input" type="submit" name="reserve_id" value="{{$reserve->id}}">
                   </form>
