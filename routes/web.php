@@ -16,7 +16,7 @@ Route::get('/detail/{shop_id}',[ShopController::class,'show'])->name(
 Route::get('/done',[ReserveController::class,'index'])->name(
     'reserve.index'
 );
-Route::get('/mypage',[UserController::class,'index'])->name(
+Route::get('/mypage',[UserController::class,'index'])->middleware(['auth'])->name(
     'user.index'
 );
 Route::resource('likes',LikeController::class)->only([

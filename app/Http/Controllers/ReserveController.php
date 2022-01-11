@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use App\Http\Requests\ReserveRequest;
 use App\Models\Reserve;
 
 class ReserveController extends Controller
@@ -17,7 +18,7 @@ class ReserveController extends Controller
         return view('done');
     }
 
-    public function store(Request $request)
+    public function store(ReserveRequest $request)
     {
         $user_id = Auth::id();
         $shop_id = $request->input('shop_id');

@@ -34,32 +34,23 @@
                             onchange="inputDate()"
                             class="reserve-input">
                 </div>
+                @if($errors->has('r_date'))
+                <div class="error-date">
+                  *{{$errors->first('r_date')}}
+                </div>
+                @endif
                 <div class="reserve-input-box">
                   <select name="r_time" onchange="inputTime(this);" class="reserve-input__time">
-                    <option value="17:00">17:00</option>
-                    <option value="17:30">17:30</option>
-                    <option value="18:00">18:00</option>
-                    <option value="18:30">18:30</option>
-                    <option value="19:00">19:00</option>
-                    <option value="19:30">19:30</option>
-                    <option value="20:00">20:00</option>
-                    <option value="20:30">20:30</option>
-                    <option value="21:00">21:00</option>
-                    <option value="21:30">21:30</option>
+                  @foreach($times as $time)
+                    <option value="{{$time}}">{{$time}}</option>
+                  @endforeach
                   </select>
                 </div>
                 <div class="reserve-input-box">
                   <select name="r_number" onchange="inputNumber(this);" class="reserve-input__number">
-                    <option value="1">1人</option>
-                    <option value="2">2人</option>
-                    <option value="3">3人</option>
-                    <option value="4">4人</option>
-                    <option value="5">5人</option>
-                    <option value="6">6人</option>
-                    <option value="7">7人</option>
-                    <option value="8">8人</option>
-                    <option value="9">9人</option>
-                    <option value="10">10人</option>
+                  @foreach($numbers as $number)
+                    <option value="{{$number}}">{{$number}}人</option>
+                  @endforeach
                   </select>
                 </div>
                 <div class="check">

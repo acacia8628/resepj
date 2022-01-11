@@ -98,3 +98,8 @@
     padding: 20px;
     cursor: pointer;
 }
+.error-date {
+    padding: 5px 20px;
+    color: #fff;
+    font-size: 16px;
+}

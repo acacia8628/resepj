@@ -2,6 +2,7 @@
     <x-slot name="style">
         <link rel="stylesheet" href="{{ asset('css/login.css') }}">
     </x-slot>
+
     <x-auth-card>
         <x-slot name="logo">
             <header class="header">

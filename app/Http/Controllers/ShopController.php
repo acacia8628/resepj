@@ -45,6 +45,36 @@ class ShopController extends Controller
     public function show($id)
     {
         $shop = Shop::find($id);
-        return view('detail',['shop' => $shop]);
+        $times = [
+            '17:00',
+            '17:30',
+            '18:00',
+            '18:30',
+            '19:00',
+            '19:30',
+            '20:00',
+            '20:30',
+            '21:00',
+            '21:30',
+        ];
+        $numbers = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10'
+        ];
+
+        $items = [
+            'shop' => $shop,
+            'times' => $times,
+            'numbers' => $numbers
+        ];
+        return view('detail',$items);
     }
 }

@@ -9,9 +9,6 @@
             </header>
         </x-slot>
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors class="mb-4" :errors="$errors" />
-
         <form method="POST" action="{{ route('register') }}" class="form">
             @csrf
             <div class="form-ttl">Registration</div>
@@ -59,6 +56,11 @@
                                 required autocomplete="new-password" />
                 </span>
             </div>
+            @if($errors->has('password'))
+            <div class="error-password">
+                *{{$errors->first('password')}}
+            </div>
+            @endif
 
             <!-- Confirm Password -->
             <div class="item-container">
