@@ -1,0 +1,130 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 5% 10px;
+}
+.search-form {
+    display: flex;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+}
+.search-img {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+}
+.search__area,
+.search__genre {
+    border: none;
+    padding: 0 10px;
+    outline: none;
+}
+.search__area {
+    border-radius: 5px 0 0 5px;
+}
+.search__shopname {
+    position: relative;
+}
+.input {
+    width: 100%;
+    padding: 20px 20px 20px 50px;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    box-sizing: border-box;
+    outline: none;
+}
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 30px auto;
+}
+.card {
+    width: 24%;
+    border-radius: 3px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    margin-bottom: 30px;
+}
+.card__text-box {
+    padding: 15px;
+}
+.card__content-img {
+    text-align: center;
+}
+.card__img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 3px 3px 0 0;
+}
+.card__hash {
+    display: flex;
+}
+.card__hash--area,
+.card__hash--genre {
+    font-size: 10px;
+    margin: 5px 3px 0 0;
+}
+.card__action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+.card__action--button {
+    background-color: #305dff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: block;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+.card__action--like-box {
+    position: relative;
+}
+.card__action--like {
+    width: 25px;
+    height: 25px;
+}
+.card__action--like-input {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.link-nav {
+    text-align: center;
+}
+.link-text {
+    padding: 10px 10px 0;
+    font-size: 12px;
+    color: #596476;
+}
+.link-numbers {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.link-svg {
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
+.link-page-number {
+    display: inline-block;
+    text-decoration: none;
+}

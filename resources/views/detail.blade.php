@@ -1,4 +1,7 @@
 <x-guest-layout>
+    <x-slot name="style">
+      <link rel="stylesheet" href="{{ asset('css/detail.css') }}">
+    </x-slot>
     <x-auth-card>
         <x-slot name="logo">
             <header class="header">
@@ -92,106 +95,3 @@
     </x-auth-card>
 </x-guest-layout>
 <script src="{{ asset('js/reserve.js') }}"></script>
-
-<style>
-    .header{
-      padding: 30px 5% 10px;
-    }
-    .content{
-      display: flex;
-      padding-bottom: 50px;
-    }
-    .detail{
-      margin: 30px auto 0 5%;
-      width: 42%;
-    }
-    .detail-ttl{
-      display: flex;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-    .detail-ttl__back{
-      padding: 5px 10px;
-      background-color: #fff;
-      border: none;
-      border-radius: 3px;
-      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
-      margin-right: 15px;
-      cursor: pointer;
-    }
-    .detail-ttl__ttl{
-      font-size: 32px;
-    }
-    .detail-img{
-      width: 100%;
-      margin-bottom: 30px;
-    }
-    .detail-hash{
-      display: flex;
-      margin-bottom: 30px;
-    }
-    .detail-hash__area,
-    .detail-hash__genre{
-      margin: 5px 3px 0 0;
-    }
-    .detail-overview{
-      line-height: 1.4em;
-    }
-    .reserve{
-      position: relative;
-      background-color: #305dff;
-      height: 80vh;
-      width: 42%;
-      margin: 0 5% 0 auto;
-      border-radius: 5px;
-      box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
-    }
-    .reserve-ttl{
-      color: #fff;
-      font-size: 24px;
-      padding: 30px 20px;
-    }
-    .reserve-input-box{
-      margin: 10px 20px;
-    }
-    .reserve-input,
-    .reserve-input__time,
-    .reserve-input__number{
-      display: block;
-      padding: 5px;
-      border-radius: 5px;
-      border: none;
-    }
-    .reserve-input__time,
-    .reserve-input__number{
-      width: 100%;
-      box-sizing: border-box;
-    }
-    .check{
-      margin: 30px 20px;
-      padding: 20px;
-      background-color: #4d7fff;
-      border-radius: 5px;
-    }
-    .table{
-      color: #fff;
-    }
-    .th,
-    .td{
-      padding: 5px;
-      text-align: left;
-      font-size: 14px;
-    }
-    .reserve-button{
-      position: absolute;
-      width: 100%;
-      bottom: 0;
-      border: none;
-      border-radius: 0 0 5px 5px;
-      background-color: #0538ff;
-      color: #fff;
-      font-size: 14px;
-      padding: 20px;
-      cursor: pointer;
-    }
-</style>

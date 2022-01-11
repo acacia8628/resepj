@@ -1,31 +1,49 @@
 <x-guest-layout>
+    <x-slot name="style">
+        <link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    </x-slot>
+
     <x-auth-card>
         <x-slot name="logo">
             <header class="header">
                 <x-application-logo/>
                 <form method="GET" action="{{ route('shop.index') }}" class="search-form">
                     @csrf
-                    <select id="area" class="search__area">
+                    <select id="area" name="area" class="search__area">
                         <option value="">All area</option>
                         @foreach($areas as $area)
-                            <option value="{{$area->id}}" id="{{$area->id}}">
+                        @if($area->id == $area_id)
+                            <option value="{{$area->id}}" selected>
                                 {{$area->name}}
                             </option>
+                        @else
+                            <option value="{{$area->id}}">
+                                {{$area->name}}
+                            </option>
+                        @endif
                         @endforeach
                     </select>
-                    <select id="genre" class="search__genre">
+                    <select id="genre" name="genre" class="search__genre">
                         <option value="">All genre</option>
                         @foreach($genres as $genre)
-                            <option value="{{$genre->id}}" id="{{$genre->id}}">
+                        @if($genre->id == $genre_id)
+                            <option value="{{$genre->id}}" selected>
                                 {{$genre->name}}
                             </option>
+                        @else
+                            <option value="{{$genre->id}}">
+                                {{$genre->name}}
+                            </option>
+                        @endif
                         @endforeach
                     </select>
                     <div class="search__shopname">
+                        <img src="/image/search.png" class="search-img">
                         <x-input id="shopname" class="input"
                                     type="text"
                                     name="shopname"
-                                    placeholder=""></x-input>
+                                    placeholder="Search ..."
+                                    value="{{$shopname}}"></x-input>
                     </div>
                 </form>
             </header>
@@ -65,90 +83,7 @@
                         </div>
                     @endforeach
                 </div>
+                {{$shops->appends(request()->input())->links()}}
         </x-slot>
     </x-auth-card>
 </x-guest-layout>
-
-<style>
-    .header{
-        display: flex;
-        justify-content: space-between;
-        padding: 30px 5% 10px;
-    }
-    .search-form{
-        display: flex;
-    }
-    .input{
-        width: 100%;
-        font-size: 100%;
-        border: none;
-        border-bottom: 1px solid #000;
-        box-sizing: border-box;
-        outline: none;
-    }
-    .wrapper{
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        width: 90%;
-        margin: 30px auto;
-    }
-    .card {
-        width: 24%;
-        border-radius: 3px;
-        box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, .5);
-        margin-bottom: 30px;
-    }
-    .card__text-box {
-        padding: 15px;
-    }
-    .card__content-img {
-        text-align: center;
-    }
-    .card__img {
-        width: 100%;
-        object-fit: cover;
-        border-radius: 3px 3px 0 0;
-    }
-    .card__hash{
-        display: flex;
-    }
-    .card__hash--area,
-    .card__hash--genre{
-        font-size: 10px;
-        margin: 5px 3px 0 0;
-    }
-    .card__action{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-top: 10px;
-    }
-    .card__action--button{
-        background-color: #305DFF;
-        color: #fff;
-        padding: 5px 10px;
-        border-radius: 6px;
-        display: block;
-        font-size: 12px;
-        border: none;
-        cursor: pointer;
-    }
-    .card__action--like-box{
-        position: relative;
-    }
-    .card__action--like{
-        width: 25px;
-        height: 25px;
-    }
-    .card__action--like-input{
-        opacity: 0;
-        position: absolute;
-        cursor: pointer;
-        width: 25px;
-        height: 25px;
-        top: 0;
-        left: 0;
-        z-index: 2;
-    }
-</style>

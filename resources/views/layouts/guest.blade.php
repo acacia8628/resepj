@@ -9,6 +9,9 @@
 
         <!-- ResetCss -->
         <link rel="stylesheet" href="{{ asset('css/reset.css') }}">
+        <div>
+            {{$style}}
+        </div>
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>

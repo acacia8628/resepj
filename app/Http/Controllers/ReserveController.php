@@ -37,7 +37,6 @@ class ReserveController extends Controller
 
     public function destroy($id)
     {
-        /* ログインユーザーID、お店ID、日付、時間、人数が一致している予約を削除 */
         if(Auth::check()){
             $user_id = Auth::id();
             $reserve_id = $id;

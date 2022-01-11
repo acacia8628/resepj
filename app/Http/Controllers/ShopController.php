@@ -11,37 +11,33 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
+        $shopname = $request->input('shopname');
+        $area_id = $request->input('area');
+        $genre_id = $request->input('genre');
+
         $query = Shop::query();
 
-        $shopname = $request->input('shopname');
-        $area = $request->input('area');
-        $genre = $request->input('genre');
-
-        $query->join('areas',function($query)use($request){
-            $query->on('shops.area_id','=','areas.id');
-        });
-        $query->join('genres',function($query)use($request){
-            $query->on('shops.genre_id','=','genres.id');
-        });
-
         if(!empty($shopname)){
-            $query->where('shopname', 'like', '%'.$shopname.'%');
+            $query->where('name', 'like', '%'.$shopname.'%');
         }
-        if(!empty($area)){
-            $query->where('area', 'like', '%'.$area.'%');
+        if(!empty($area_id)){
+            $query->where('area_id', $area_id);
         }
-        if(!empty($genre)){
-            $query->where('genre', 'like', '%'.$genre.'%');
+        if(!empty($genre_id)){
+            $query->where('genre_id', $genre_id);
         }
 
-        $shops = Shop::with(["area","genre","likes"])->get();
+        $shops = $query->with(["area","genre","likes"])->paginate(12);
         $genres = Genre::all();
         $areas = Area::all();
 
         $items = [
             'shops' => $shops,
             'genres' => $genres,
-            'areas' => $areas
+            'areas' => $areas,
+            'shopname' => $shopname,
+            'area_id' => $area_id,
+            'genre_id' => $genre_id,
         ];
         return view('index', $items);
     }
