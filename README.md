@@ -36,11 +36,12 @@ php artisan db:seed
 ## 環境
 
 Composer version 2.1.9
+
 PHP 7.4.25
 
 ## 文責
 
-* 作成者:acacia8628
+* 作成者: acacia8628
 
 ## ライセンス
 
