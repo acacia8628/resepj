@@ -1,4 +1,4 @@
-![Rese](/public/image/rese-logo.png =x80)
+<img src="/public/image/rese-logo.png" height="80px">
 
 ## About Laravel
 
