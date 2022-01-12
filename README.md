@@ -1,4 +1,4 @@
-![Rese](/image/rese-logo.png)
+![Rese](/public/image/rese-logo.png)
 
 ## About Laravel
 
