@@ -1,20 +1,17 @@
-<img align="center" src="/public/image/rese-logo.png" height="80px">
-
 <p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<img src="/public/image/rese-logo.png" height="80px">
 </p>
 
 # 飲食店予約サービスアプリ「RESE」のコード（PHP）
 
 ある企業のグループ会社の飲食店予約サービスです。
+
 会員登録からお店のお気に入り、予約まで行えます。
 
 ## デモ
 
 飲食店一覧から気になったお店の詳細を見ることができます。
+
 詳細からお店の予約をとることができます。
 
 ![飲食店一覧](/public/image/demo-home.png)
