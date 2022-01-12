@@ -13,9 +13,6 @@
         <!-- Session Status -->
         <x-auth-session-status :status="session('status')" />
 
-        <!-- Validation Errors -->
-        <x-auth-validation-errors :errors="$errors" />
-
         <form method="POST" action="{{ route('login') }}" class="form">
             @csrf
             <div class="form-ttl">Login</div>
@@ -31,9 +28,14 @@
                                 name="email"
                                 :value="old('email')"
                                 placeholder="Email"
-                                required autofocus />
+                                autofocus />
                 </span>
             </div>
+            @if($errors->has('email'))
+            <div class="error">
+                *{{$errors->first('email')}}
+            </div>
+            @endif
 
             <!-- Password -->
             <div class="item-container">
@@ -45,9 +47,14 @@
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                required autocomplete="current-password" />
+                                autocomplete="current-password" />
                 </span>
             </div>
+            @if($errors->has('password'))
+            <div class="error">
+                *{{$errors->first('password')}}
+            </div>
+            @endif
 
             <div class="item-container">
                 <x-button class="button">

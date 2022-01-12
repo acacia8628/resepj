@@ -28,6 +28,12 @@
                 @csrf
                 <h2 class="reserve-ttl">予約</h2>
                 <input type="hidden" name="shop_id" value="{{$shop->id}}">
+                @if($errors->has('shop_id'))
+                <div class="error">
+                  *{{$errors->first('shop_id')}}
+                </div>
+                @endif
+
                 <div class="reserve-input-box">
                   <input type="date" name="r_date"
                             id="r_date"
@@ -35,10 +41,11 @@
                             class="reserve-input">
                 </div>
                 @if($errors->has('r_date'))
-                <div class="error-date">
+                <div class="error">
                   *{{$errors->first('r_date')}}
                 </div>
                 @endif
+
                 <div class="reserve-input-box">
                   <select name="r_time" onchange="inputTime(this);" class="reserve-input__time">
                   @foreach($times as $time)
@@ -46,6 +53,12 @@
                   @endforeach
                   </select>
                 </div>
+                @if($errors->has('r_time'))
+                <div class="error">
+                  *{{$errors->first('r_time')}}
+                </div>
+                @endif
+
                 <div class="reserve-input-box">
                   <select name="r_number" onchange="inputNumber(this);" class="reserve-input__number">
                   @foreach($numbers as $number)
@@ -53,6 +66,12 @@
                   @endforeach
                   </select>
                 </div>
+                @if($errors->has('r_number'))
+                <div class="error">
+                  *{{$errors->first('r_number')}}
+                </div>
+                @endif
+
                 <div class="check">
                   <table class="table">
                     <tr>

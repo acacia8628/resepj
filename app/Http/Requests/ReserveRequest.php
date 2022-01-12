@@ -33,9 +33,15 @@ class ReserveRequest extends FormRequest
     public function messages()
     {
         return [
+            'shop_id.required' => 'お店を選択してください',
+            'shop_id.max' => 'お店は255文字以内で入力してください',
             'r_date.required' => '予約日を選択してください',
-            'r_date.date' => '日付を入力してください',
+            'r_date.date' => '正しく日付を入力してください 例）2022-01-01',
             'r_date.after' => '明日以降の日付を選択してください',
+            'r_time.required' => '予約時間を入力してください',
+            'r_time.date_format' => '正しく時間を入力してください 例）17:00',
+            'r_number.required' => '予約人数を入力してください',
+            'r_number.numeric' => '予約人数を数字で入力してください',
         ];
     }
 }

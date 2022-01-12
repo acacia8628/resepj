@@ -27,6 +27,11 @@
                             required autofocus />
                 </span>
             </div>
+            @if($errors->has('name'))
+            <div class="error">
+                *{{$errors->first('name')}}
+            </div>
+            @endif
 
             <!-- Email Address -->
             <div class="item-container">
@@ -42,6 +47,11 @@
                                 required autofocus />
                 </span>
             </div>
+            @if($errors->has('email'))
+            <div class="error">
+                *{{$errors->first('email')}}
+            </div>
+            @endif
 
             <!-- Password -->
             <div class="item-container">
@@ -57,7 +67,7 @@
                 </span>
             </div>
             @if($errors->has('password'))
-            <div class="error-password">
+            <div class="error">
                 *{{$errors->first('password')}}
             </div>
             @endif

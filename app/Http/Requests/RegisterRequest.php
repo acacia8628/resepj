@@ -33,6 +33,13 @@ class RegisterRequest extends FormRequest
     public function messages()
     {
         return [
+            'name.required' => '名前を入力してください',
+            'name.max' => '名前は255文字以内にしてください',
+            'email.required' => 'Eメールを入力してください',
+            'email.email' => 'Eメール形式で入力してください',
+            'email.max' => 'Eメールは255文字以内にしてください',
+            'email.unique' => '既に登録済みのEメールです',
+            'password.required' => 'パスワードを入力してください',
             'password.min' => 'パスワードは8文字以上にしてください',
             'password.max' => 'パスワードは255文字以内にしてください',
         ];
