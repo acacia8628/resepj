@@ -68,6 +68,16 @@
     left: 0;
     z-index: 2;
 }
+.reserve-edit__button {
+    display: block;
+    margin-left: auto;
+    padding: 5px 10px;
+    background-color: inherit;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .likes-box {
     width: 50%;
     padding: 50px 10%;
