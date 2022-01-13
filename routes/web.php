@@ -23,7 +23,7 @@ Route::resource('likes',LikeController::class)->only([
     'store','destroy'
 ]);
 Route::resource('reserves',ReserveController::class)->only([
-    'store','destroy'
+    'store','edit','update','destroy'
 ]);
 Route::resource('thanks',ThanksController::class)->only([
     'index'

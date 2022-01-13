@@ -28,7 +28,7 @@
                     </tr>
                     <tr>
                       <th class="th">Time</th>
-                      <td class="td">{{$reserve->reserve_time}}</td>
+                      <td class="td">{{substr($reserve->reserve_time, 0, 5)}}</td>
                     </tr>
                     <tr>
                       <th class="th">Number</th>
@@ -36,10 +36,14 @@
                     </tr>
                   </table>
                   <form method="POST" action="{{ route('reserves.destroy', $reserve->id) }}" class="reserve-delete">
-                      @csrf
-                      <img class="reserve-delete__img" src="/image/delete.png">
-                      <input type="hidden" name="_method" value="DELETE">
-                      <input class="reserve-delete__input" type="submit" name="reserve_id" value="{{$reserve->id}}">
+                    @csrf
+                    <img class="reserve-delete__img" src="/image/delete.png">
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input class="reserve-delete__input" type="submit" name="delete" value="{{$reserve->id}}">
+                  </form>
+                  <form method="GET" action="{{ route('reserves.edit',$reserve->id) }}" class="reserve-edit">
+                    @csrf
+                    <button class="reserve-edit__button">編集</button>
                   </form>
                 </div>
                 @endforeach

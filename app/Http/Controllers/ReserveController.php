@@ -36,6 +36,61 @@ class ReserveController extends Controller
         return view('done');
     }
 
+    public function edit($id)
+    {
+        $reserve = Reserve::find($id);
+        $times = [
+            '17:00:00',
+            '17:30:00',
+            '18:00:00',
+            '18:30:00',
+            '19:00:00',
+            '19:30:00',
+            '20:00:00',
+            '20:30:00',
+            '21:00:00',
+            '21:30:00',
+        ];
+        $numbers = [
+            '1',
+            '2',
+            '3',
+            '4',
+            '5',
+            '6',
+            '7',
+            '8',
+            '9',
+            '10'
+        ];
+
+        $items = [
+            'reserve' => $reserve,
+            'times' => $times,
+            'numbers' => $numbers
+        ];
+        return view('reserve_edit',$items);
+    }
+
+    public function update(ReserveRequest $request, $id)
+    {
+        if(Auth::check()){
+            $user_id = Auth::id();
+            $reserve_id = $id;
+            $r_date = $request->input('r_date');
+            $r_time = $request->input('r_time');
+            $r_number = $request->input('r_number');
+
+            $item = Reserve::where('id',$reserve_id)->where('user_id',$user_id)->first();
+
+            $item->reserve_date = $r_date;
+            $item->reserve_time = $r_time;
+            $item->reserve_number = $r_number;
+            $item->save();
+            return redirect('mypage');
+        }
+    }
+
     public function destroy($id)
     {
         if(Auth::check()){
