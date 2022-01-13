@@ -43,7 +43,7 @@
                   </form>
                   <form method="GET" action="{{ route('reserves.edit',$reserve->id) }}" class="reserve-edit">
                     @csrf
-                    <button class="reserve-edit__button">編集</button>
+                    <button class="reserve-edit__button">変更</button>
                   </form>
                 </div>
                 @endforeach
