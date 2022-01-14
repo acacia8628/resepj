@@ -50,9 +50,7 @@
             <div class="wrapper">
                     @foreach($shops as $shop)
                         <div class="card">
-                            <div class="card__content-img">
-                                <img class="card__img" src="{{$shop->img_url}}"/>
-                            </div>
+                            <img class="card__img" src="{{$shop->img_url}}"/>
                             <div class="card__text-box">
                                 <div class="card__ttl-box">
                                     <h2 class="card__name">{{$shop->name}}</h2>

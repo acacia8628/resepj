@@ -90,6 +90,7 @@
                   <input type="date" name="r_date"
                             id="r_date"
                             onchange="inputDate()"
+                            value="{{ old('r_date') }}"
                             class="reserve-input">
                 </div>
                 @if($errors->has('r_date'))
@@ -100,9 +101,10 @@
 
                 <div class="reserve-input-box">
                   <select name="r_time" onchange="inputTime(this);" class="reserve-input__time">
-                  @foreach($times as $time)
-                    <option value="{{$time}}">{{substr($time, 0, 5)}}</option>
-                  @endforeach
+                    <option value="">-- 予約時間 --</option>
+                    @foreach($times as $time)
+                      <option value="{{$time}}" @if($time == old('r_time')) selected @endif >{{substr($time, 0, 5)}}</option>
+                    @endforeach
                   </select>
                 </div>
                 @if($errors->has('r_time'))
@@ -113,9 +115,10 @@
 
                 <div class="reserve-input-box">
                   <select name="r_number" onchange="inputNumber(this);" class="reserve-input__number">
-                  @foreach($numbers as $number)
-                    <option value="{{$number}}">{{$number}}人</option>
-                  @endforeach
+                    <option value="">-- 予約人数 --</option>
+                    @foreach($numbers as $number)
+                      <option value="{{$number}}" @if($number == old('r_number')) selected @endif >{{$number}}人</option>
+                    @endforeach
                   </select>
                 </div>
                 @if($errors->has('r_number'))

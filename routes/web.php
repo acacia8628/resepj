@@ -14,16 +14,19 @@ Route::get('/',[ShopController::class,'index'])->name(
 Route::get('/detail/{shop_id}',[ShopController::class,'show'])->name(
     'shop.show'
 );
-Route::get('/done',[ReserveController::class,'index'])->name(
+Route::get('/done',[ReserveController::class,'index'])->middleware(['auth'])->name(
     'reserve.index'
 );
 Route::get('/mypage',[UserController::class,'index'])->middleware(['auth'])->name(
     'user.index'
 );
-Route::resource('likes',LikeController::class)->only([
+Route::resource('users',UserController::class)->middleware(['auth'])->only([
+    'show'
+]);
+Route::resource('likes',LikeController::class)->middleware(['auth'])->only([
     'store','destroy'
 ]);
-Route::resource('reserves',ReserveController::class)->only([
+Route::resource('reserves',ReserveController::class)->middleware(['auth'])->only([
     'store','edit','update','destroy'
 ]);
 Route::resource('thanks',ThanksController::class)->only([

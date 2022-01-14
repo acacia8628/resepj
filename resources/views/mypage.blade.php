@@ -53,9 +53,7 @@
                 <div class="likes">
                 @foreach($user->likes as $like)
                   <div class="card">
-                    <div class="card__content-img">
-                      <img class="card__img" src="{{$like->shop->img_url}}"/>
-                    </div>
+                    <img class="card__img" src="{{$like->shop->img_url}}"/>
                     <div class="card__text-box">
                       <div class="card__ttl-box">
                         <h2 class="card__name">{{$like->shop->name}}</h2>
@@ -101,7 +99,11 @@
                 </div>
               </div>
               <div class="reserve-history">
-                
+                <form method="GET" action="{{ route('users.show',$user->id) }}" class="review-form">
+                  @csrf
+                  <img src="/image/comment.png" class="review-form__img">
+                  <button class="review-form__button">すべてのお客様の声を見る</button>
+                </form>
               </div>
             </div>
         </x-slot>

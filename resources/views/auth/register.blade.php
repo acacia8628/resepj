@@ -24,7 +24,7 @@
                             name="name"
                             :value="old('name')"
                             placeholder="Username"
-                            required autofocus />
+                            autofocus />
                 </span>
             </div>
             @if($errors->has('name'))
@@ -44,7 +44,7 @@
                                 name="email"
                                 :value="old('email')"
                                 placeholder="Email"
-                                required autofocus />
+                                autofocus />
                 </span>
             </div>
             @if($errors->has('email'))
@@ -63,7 +63,7 @@
                                 type="password"
                                 name="password"
                                 placeholder="Password"
-                                required autocomplete="new-password" />
+                                autocomplete="new-password" />
                 </span>
             </div>
             @if($errors->has('password'))
@@ -82,7 +82,7 @@
                                 type="password"
                                 name="password_confirmation"
                                 placeholder="Password(確認用)"
-                                required/>
+                                />
                 </span>
             </div>
 

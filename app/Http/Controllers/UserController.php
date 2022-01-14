@@ -14,4 +14,12 @@ class UserController extends Controller
         $user = User::with(['likes','reserves'])->where('id',$user_id)->first();
         return view('mypage', ['user' => $user]);
     }
+
+    public function show($id)
+    {
+        $items = [
+            
+        ];
+        return view('reserve_history',$items);
+    }
 }

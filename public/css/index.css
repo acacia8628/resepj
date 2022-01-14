@@ -46,20 +46,21 @@
 }
 .card {
     width: 24%;
-    border-radius: 3px;
+    border-radius: 5px;
+    border: none;
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
     margin-bottom: 30px;
-}
-.card__text-box {
-    padding: 15px;
-}
-.card__content-img {
-    text-align: center;
+    background-color: #fff;
 }
 .card__img {
     width: 100%;
     object-fit: cover;
-    border-radius: 3px 3px 0 0;
+    border-radius: 5px 5px 0 0;
+}
+.card__text-box {
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
 }
 .card__ttl-box {
     display: flex;
