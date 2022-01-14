@@ -27,7 +27,7 @@
     padding: 20px;
     border-radius: 5px;
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-    width: 60%
+    width: 60%;
 }
 .reserve-ttl {
     display: flex;
@@ -187,6 +187,22 @@
     left: 0;
     z-index: 2;
 }
-.reserve-history{
-    width: 100%;
+.reserve-history {
+    width: 60%;
+    padding-left: 40px;
+}
+.reserve-history__form {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.reserve-history__img {
+    width: 30px;
+    height: 30px;
+}
+.reserve-history__button {
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
 }

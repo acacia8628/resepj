@@ -47,6 +47,13 @@
                   </form>
                 </div>
                 @endforeach
+                <div class="reserve-history">
+                  <form method="GET" action="{{ route('users.show',$user->id) }}" class="reserve-history__form">
+                    @csrf
+                    <img src="/image/history.png" class="reserve-history__img">
+                    <button class="reserve-history__button">予約履歴を見る</button>
+                  </form>
+                </div>
               </div>
               <div class="likes-box">
                 <h2 class="likes-ttl">お気に入り店舗</h2>
@@ -97,13 +104,6 @@
                   </div>
                 @endforeach
                 </div>
-              </div>
-              <div class="reserve-history">
-                <form method="GET" action="{{ route('users.show',$user->id) }}" class="review-form">
-                  @csrf
-                  <img src="/image/comment.png" class="review-form__img">
-                  <button class="review-form__button">すべてのお客様の声を見る</button>
-                </form>
               </div>
             </div>
         </x-slot>
