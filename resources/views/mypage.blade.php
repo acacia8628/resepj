@@ -100,6 +100,9 @@
                 @endforeach
                 </div>
               </div>
+              <div class="reserve-history">
+                
+              </div>
             </div>
         </x-slot>
     </x-auth-card>

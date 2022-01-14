@@ -101,7 +101,7 @@
                 <div class="reserve-input-box">
                   <select name="r_time" onchange="inputTime(this);" class="reserve-input__time">
                   @foreach($times as $time)
-                    <option value="{{$time}}">{{$time}}</option>
+                    <option value="{{$time}}">{{substr($time, 0, 5)}}</option>
                   @endforeach
                   </select>
                 </div>
