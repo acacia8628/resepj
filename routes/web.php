@@ -6,6 +6,7 @@ use App\Http\Controllers\ShopController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ThanksController;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/',[ShopController::class,'index'])->name(
     'shop.index'
@@ -27,6 +28,9 @@ Route::resource('reserves',ReserveController::class)->only([
 ]);
 Route::resource('thanks',ThanksController::class)->only([
     'index'
+]);
+Route::resource('reviews',ReviewController::class)->only([
+    'store','show','destroy'
 ]);
 
 Route::get('/dashboard', function () {

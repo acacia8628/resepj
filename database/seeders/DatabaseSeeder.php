@@ -16,5 +16,10 @@ class DatabaseSeeder extends Seeder
         $this->call(AreasTableSeeder::class);
         $this->call(GenresTableSeeder::class);
         $this->call(ShopsTableSeeder::class);
+        /**
+         * 下記のシーダーはユーザーがいない場合エラーが出るため、通常はコメントアウト。
+         * 使う場合はユーザー登録をした後に、上記３つのシーダーをコメントアウトしてから使う。
+        */
+        /* $this->call(ReviewsTableSeeder::class); */
     }
 }

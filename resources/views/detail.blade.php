@@ -7,13 +7,27 @@
             <header class="header">
                 <x-application-logo/>
             </header>
+
             <div class="content">
               <div class="detail">
                 <div class="detail-ttl">
-                  <button type="button" onClick="history.back()" class="detail-ttl__back">
-                    <
-                  </button>
-                  <h2 class="detail-ttl__ttl">{{$shop->name}}</h2>
+                  <div class="detail-ttl__ttl-box">
+                    <button type="button" onClick="history.back()" class="detail-ttl__back">
+                      <
+                    </button>
+                    <h2 class="detail-ttl__ttl">{{$shop->name}}</h2>
+                  </div>
+                  <div class="average-score">
+                    <div class="average-score-display">
+                      {{$shop->score_avg()}}
+                    </div>
+                    <div class="star-rating">
+                      <div class="star-rating-front"
+                              style="width: {{$shop->score_avg_percentage()}}%"
+                        >★★★★★</div>
+                      <div class="star-rating-back">★★★★★</div>
+                    </div>
+                  </div>
                 </div>
                 <img src="{{$shop->img_url}}" class="detail-img">
                 <div class="detail-hash">
@@ -23,7 +37,45 @@
                 <div class="detail-overview">
                   {{$shop->overview}}
                 </div>
+
+                @if(!empty($reviews[0]))
+                <div class="review">
+                  <h2 class="review-ttl">お客様の声</h2>
+                  @foreach($reviews as $review)
+                  <div class="review-content">
+                    <div class="score">
+                      <img src="/image/people.png" class="score-img-people">
+                      <div class="star-rating">
+                        <div class="star-rating-front"
+                                style="width: {{$review->score_percentage()}}%"
+                          >★★★★★</div>
+                        <div class="star-rating-back">★★★★★</div>
+                      </div>
+                    </div>
+                    <div class="comment">
+                      {{$review->comment}}
+                    </div>
+                  </div>
+                  @endforeach
+                  <form method="GET" action="{{ route('reviews.show',$shop->id) }}" class="review-form">
+                    @csrf
+                    <img src="/image/comment.png" class="review-form__img">
+                    <button class="review-form__button">すべてのお客様の声を見る</button>
+                  </form>
+                </div>
+                @else
+                <div class="review">
+                  <h2 class="review-ttl">お客様の声</h2>
+                  <p class="review-no-content">まだお客様の声はありません。</p>
+                  <form method="GET" action="{{ route('reviews.show',$shop->id) }}" class="review-form">
+                    @csrf
+                    <img src="/image/comment.png" class="review-form__img">
+                    <button class="review-form__button">お客様の声を投稿する</button>
+                  </form>
+                </div>
+                @endif
               </div>
+
               <form method="POST" action="{{ route('reserves.store') }}" class="reserve">
                 @csrf
                 <h2 class="reserve-ttl">予約</h2>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
+use App\Models\Review;
 
 class ShopController extends Controller
 {
@@ -27,7 +28,7 @@ class ShopController extends Controller
             $query->where('genre_id', $genre_id);
         }
 
-        $shops = $query->with(["area","genre","likes"])->paginate(12);
+        $shops = $query->with(["area","genre","likes","reviews"])->paginate(12);
         $genres = Genre::all();
         $areas = Area::all();
 
@@ -69,11 +70,14 @@ class ShopController extends Controller
             '9',
             '10'
         ];
+        $reviews = Review::where('shop_id',$id)->
+            orderBy('score','desc')->limit(3)->get();
 
         $items = [
             'shop' => $shop,
             'times' => $times,
-            'numbers' => $numbers
+            'numbers' => $numbers,
+            'reviews' => $reviews,
         ];
         return view('detail',$items);
     }

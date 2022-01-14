@@ -61,6 +61,37 @@
     object-fit: cover;
     border-radius: 3px 3px 0 0;
 }
+.card__ttl-box {
+    display: flex;
+    justify-content: space-between;
+}
+.card__average-score {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+}
+.card__average-score-display {
+    margin-right: 5px;
+    font-size: 16px;
+}
+.card__star-rating {
+    position: relative;
+    width: 5em;
+    height: 1em;
+    font-size: 17px;
+}
+.star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcc33;
+    height: 25px;
+}
+.star-rating-back {
+    color: #ccc;
+}
 .card__hash {
     display: flex;
 }

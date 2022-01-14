@@ -54,7 +54,20 @@
                                 <img class="card__img" src="{{$shop->img_url}}"/>
                             </div>
                             <div class="card__text-box">
-                                <h2 class="card__name">{{$shop->name}}</h2>
+                                <div class="card__ttl-box">
+                                    <h2 class="card__name">{{$shop->name}}</h2>
+                                    <div class="card__average-score">
+                                        <div class="card__average-score-display">
+                                            {{$shop->score_avg()}}
+                                        </div>
+                                        <div class="card__star-rating">
+                                            <div class="star-rating-front"
+                                                style="width: {{$shop->score_avg_percentage()}}%"
+                                                >★★★★★</div>
+                                            <div class="star-rating-back">★★★★★</div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="card__hash">
                                     <p class="card__hash--area">#{{$shop->area->name}}</p>
                                     <p class="card__hash--genre">#{{$shop->genre->name}}</p>

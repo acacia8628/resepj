@@ -15,7 +15,7 @@
                 <div class="reserve">
                   <div class="reserve-ttl">
                     <img src="/image/time.png" class="reserve-ttl__img">
-                    <p class="reserve-ttl__ttl">予約{{$loop->index+1}}</p>
+                    <p class="reserve-ttl__ttl">予約{{$loop->iteration}}</p>
                   </div>
                   <table class="table">
                     <tr>
@@ -57,7 +57,20 @@
                       <img class="card__img" src="{{$like->shop->img_url}}"/>
                     </div>
                     <div class="card__text-box">
-                      <h2 class="card__name">{{$like->shop->name}}</h2>
+                      <div class="card__ttl-box">
+                        <h2 class="card__name">{{$like->shop->name}}</h2>
+                        <div class="average-score">
+                          <div class="average-score-display">
+                            {{$like->shop->score_avg()}}
+                          </div>
+                          <div class="star-rating">
+                            <div class="star-rating-front"
+                                    style="width: {{$like->shop->score_avg_percentage()}}%"
+                              >★★★★★</div>
+                            <div class="star-rating-back">★★★★★</div>
+                          </div>
+                        </div>
+                      </div>
                       <div class="card__hash">
                         <p class="card__hash--area">#{{$like->shop->area->name}}</p>
                         <p class="card__hash--genre">#{{$like->shop->genre->name}}</p>
