@@ -1,3 +1,135 @@
 .header {
     padding: 30px 5% 10px;
 }
+.review-form {
+    width: 40%;
+    margin: 0 auto 50px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+}
+.review-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.review-img-box {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.review-img {
+    width: 100%;
+    border-radius: 5px;
+}
+.score-form {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+.score-form input[type="radio"] {
+    display: none;
+}
+.score-form label {
+    position: relative;
+    padding: 0 5px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 35px;
+}
+.score-form label:hover {
+    color: #ffcc00;
+}
+.score-form label:hover ~ label {
+    color: #ffcc00;
+}
+.score-form input[type="radio"]:checked ~ label {
+    color: #ffcc00;
+}
+.review-comment-box {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 20px;
+}
+.review-comment__label {
+    margin: 20px 20px 0 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+.comment {
+    width: 80%;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+    padding: 5px 8px;
+    font-size: 16px;
+    line-height: 1.5em;
+}
+.review-button {
+    display: block;
+    margin-left: auto;
+    background-color: #305dff;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 6px;
+    display: block;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+.review-all {
+    width: 100%;
+    margin: 0 auto;
+}
+.review-all__ttl {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.review-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 5px;
+    width: 50%;
+    padding: 20px;
+    margin: 0 auto 15px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+}
+.score {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+.score-img-people {
+    width: 25px;
+    height: 25px;
+    margin-right: 10px;
+}
+.star-rating {
+    position: relative;
+    width: 5em;
+    height: 1em;
+    font-size: 17px;
+}
+.star-rating-front {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    color: #ffcc33;
+    height: 25px;
+}
+.star-rating-back {
+    color: #ccc;
+}
+.error {
+    padding: 5px 20px;
+}

@@ -70,8 +70,10 @@ class ShopController extends Controller
             '9',
             '10'
         ];
-        $reviews = Review::where('shop_id',$id)->
-            orderBy('score','desc')->limit(3)->get();
+        $reviews = Review::where('shop_id',$id)
+            ->orderBy('score','desc')
+            ->limit(3)
+            ->get();
 
         $items = [
             'shop' => $shop,

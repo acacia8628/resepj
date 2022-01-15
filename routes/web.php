@@ -33,7 +33,10 @@ Route::resource('thanks',ThanksController::class)->only([
     'index'
 ]);
 Route::resource('reviews',ReviewController::class)->only([
-    'store','show','destroy'
+    'show'
+]);
+Route::resource('reviews',ReviewController::class)->middleware(['auth'])->only([
+    'store','update','destroy'
 ]);
 
 Route::get('/dashboard', function () {

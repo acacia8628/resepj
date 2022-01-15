@@ -11,7 +11,7 @@
             <div class="main">
               <div class="reserves-box">
                 <h2 class="reserves-ttl">予約状況</h2>
-                @foreach($user->reserves as $reserve)
+                @foreach($reserves as $reserve)
                 <div class="reserve">
                   <div class="reserve-ttl">
                     <img src="/image/time.png" class="reserve-ttl__img">

@@ -36,6 +36,22 @@ class Shop extends Model
         }
     }
 
+    public function is_reviewed_by_auth_user()
+    {
+        $id = Auth::id();
+        $reviews = array();
+
+        foreach($this->reviews as $review) {
+            array_push($reviews, $review->user_id);
+        }
+
+        if (in_array($id, $reviews)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function score_avg_percentage()
     {
         $shop_id = $this->id;

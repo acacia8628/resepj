@@ -93,6 +93,7 @@
 .score {
     display: flex;
     align-items: center;
+    margin-right: 30px;
 }
 .score-img-people {
     width: 25px;
