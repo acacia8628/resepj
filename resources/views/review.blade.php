@@ -128,6 +128,14 @@
                     <div class="review-comment">
                         {{$review->comment}}
                     </div>
+                    @if(Auth::id() == $review->user_id)
+                    <form method="POST" action="{{ route('reviews.destroy', $review->id) }}" class="review-delete">
+                        @csrf
+                        <img class="review-delete__img" src="/image/delete.png">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input class="review-delete__input" type="submit" name="delete" value="{{$review->id}}">
+                    </form>
+                    @endif
                 </div>
                 @endforeach
             </div>

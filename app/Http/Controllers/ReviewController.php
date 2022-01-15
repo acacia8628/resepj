@@ -66,6 +66,14 @@ class ReviewController extends Controller
 
     public function destroy($id)
     {
-        //
+        if(Auth::check()){
+            $user_id = Auth::id();
+
+            $item = Review::where('id',$id)
+                ->where('user_id',$user_id)
+                ->first();
+            $item->delete();
+            return redirect()->back();
+        }
     }
 }

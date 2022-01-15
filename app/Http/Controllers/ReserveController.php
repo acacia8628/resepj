@@ -93,7 +93,9 @@ class ReserveController extends Controller
             $user_id = Auth::id();
             $reserve_id = $id;
 
-            $item = Reserve::where('id',$reserve_id)->where('user_id',$user_id)->first();
+            $item = Reserve::where('id',$reserve_id)
+                ->where('user_id',$user_id)
+                ->first();
             $item->delete();
             return redirect('mypage');
         }
