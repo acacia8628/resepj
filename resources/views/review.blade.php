@@ -104,7 +104,11 @@
                     </div>
                     @endif
 
+                    @if($shop->is_reserved_by_auth_user())
                     <button type="submit" class="review-button">送信</button>
+                    @else
+                    <div class="not-reserved">当店をご予約、ご利用後にレビューを投稿することができます。</div>
+                    @endif
                 </form>
                 @endif
             </div>

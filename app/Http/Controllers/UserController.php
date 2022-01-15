@@ -13,12 +13,12 @@ class UserController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $current_time = Carbon::now()->format('Y-m-d');
+        $current_date = Carbon::now()->format('Y-m-d');
 
         $user = User::with(['likes'])->where('id',$user_id)->first();
         $reserves = Reserve::with(['shop'])
             ->where('user_id',$user_id)
-            ->whereDate('reserve_date','>',$current_time)
+            ->whereDate('reserve_date','>',$current_date)
             ->get();
 
         $items = [

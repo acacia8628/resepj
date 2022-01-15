@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class Shop extends Model
 {
@@ -46,6 +47,25 @@ class Shop extends Model
         }
 
         if (in_array($id, $reviews)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function is_reserved_by_auth_user()
+    {
+        $id = Auth::id();
+        $reserves = array();
+        $current_date = Carbon::now()->format('Y-m-d');
+
+        foreach($this->reserves as $reserve) {
+            if ($reserve->user_id == $id && $reserve->reserve_date < $current_date) {
+                array_push($reserves, $reserve->user_id);
+            }
+        }
+
+        if (in_array($id, $reserves)) {
             return true;
         } else {
             return false;
