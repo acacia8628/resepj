@@ -84,6 +84,7 @@
 .reserve-history {
     width: 60%;
     padding-left: 40px;
+    margin-bottom: 50px;
 }
 .reserve-history__form {
     display: flex;
@@ -205,4 +206,36 @@
     top: 0;
     left: 0;
     z-index: 2;
+}
+@media screen and (max-width: 768px) {
+    .main {
+        display: block;
+    }
+    .reserves-box {
+        margin: 0 auto;
+        width: 70%;
+    }
+    .reserve {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    .reserve-history {
+        margin-left: auto;
+    }
+    .likes-box{
+        margin: 0 auto;
+        width: 70%;
+    }
+    .card{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .reserves-box{
+        width: 90%;
+    }
+    .likes-box{
+        width: 90%;
+    }
 }
