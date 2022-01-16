@@ -56,3 +56,14 @@
 .error{
     padding: 10px 30px;
 }
+@media screen and (max-width: 768px) {
+    .form {
+        width: 49%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .form {
+        width: 90%;
+    }
+}
