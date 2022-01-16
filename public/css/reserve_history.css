@@ -59,3 +59,25 @@
     color: #fff;
     font-size: 16px;
 }
+@media screen and (max-width: 768px) {
+    .reserve {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .reserves-box{
+        width: 90%;
+    }
+    .reserve-ttl{
+        justify-content: center;
+    }
+    .td{
+        padding-left: 40%;
+        width: 100%;
+    }
+    .reserve-links{
+        text-align: center;
+    }
+}
