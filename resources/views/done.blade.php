@@ -9,7 +9,7 @@
             </header>
         </x-slot>
 
-        <form method="GET" action="{{ route('shop.index') }}" class="form">
+        <form method="GET" action="{{ route('shop.index') }}" class="message-form">
             @csrf
             <div class="form-content">ご予約ありがとうございます</div>
 

@@ -1,7 +1,7 @@
 .header {
     padding: 30px 5% 10px;
 }
-.form {
+.message-form {
     width: 30%;
     margin: 100px auto;
     padding: 100px 50px;
@@ -28,13 +28,13 @@
     cursor: pointer;
 }
 @media screen and (max-width: 768px) {
-    .form {
+    .message-form {
         width: 49%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .form {
+    .message-form {
         width: 70%;
         padding: 100px 30px;
     }

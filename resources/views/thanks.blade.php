@@ -9,7 +9,7 @@
             </header>
         </x-slot>
 
-        <form method="GET" action="{{ route('login') }}" class="form">
+        <form method="GET" action="{{ route('login') }}" class="message-form">
             @csrf
             <div class="form-content">会員登録ありがとうございます</div>
 
