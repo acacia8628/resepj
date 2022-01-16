@@ -3,15 +3,22 @@
     justify-content: space-between;
     padding: 30px 5% 10px;
 }
-.search-form {
+.search-form__desktop {
     display: flex;
     border-radius: 5px;
     box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
 }
+.search-form__tablet {
+    display: none;
+}
+.search-form__mobile {
+    display: none;
+}
 .search-img {
     position: absolute;
-    top: 15px;
+    top: 50%;
     left: 15px;
+    transform: translate(0, -50%);
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -159,4 +166,77 @@
 .link-page-number {
     display: inline-block;
     text-decoration: none;
+}
+.m-content-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.m-search__area,
+.m-search__genre {
+    display: block;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    padding: 8px 20px;
+    margin-left: 20px;
+    outline: none;
+    font-size: 16px;
+}
+.m-search__shopname {
+    position: relative;
+}
+.m-search-img {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translate(0, -50%);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    opacity: 0.3;
+}
+.m-input {
+    width: 100%;
+    padding: 15px 20px 15px 50px;
+    border: 1px solid darkgray;
+    border-radius: 5px;
+    box-sizing: border-box;
+    outline: none;
+}
+@media screen and (max-width: 768px) {
+    .card {
+        width: 45%;
+    }
+    .search-form__desktop {
+        display: none;
+    }
+    .search-form__tablet {
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        margin: 30px 50px 0;
+        box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    }
+    .search__shopname {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 90%;
+        margin: 0 auto 30px;
+    }
+    .search-form__tablet {
+        display: none;
+    }
+    .search-form__mobile {
+        display: block;
+        justify-content: center;
+        background-color: #fff;
+        border-radius: 5px;
+        margin: 30px 50px;
+        padding: 20px;
+        box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    }
 }

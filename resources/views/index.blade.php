@@ -1,3 +1,5 @@
+<!-- HACK: サーチ部品コンポーネント化 -->
+
 <x-guest-layout>
     <x-slot name="style">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}">
@@ -7,7 +9,7 @@
         <x-slot name="logo">
             <header class="header">
                 <x-application-logo/>
-                <form method="GET" action="{{ route('shop.index') }}" class="search-form">
+                <form method="GET" action="{{ route('shop.index') }}" class="search-form__desktop">
                     @csrf
                     <select id="area" name="area" class="search__area">
                         <option value="">All area</option>
@@ -47,6 +49,93 @@
                     </div>
                 </form>
             </header>
+
+            <form method="GET" action="{{ route('shop.index') }}" class="search-form__tablet">
+                @csrf
+                <select id="area" name="area" class="search__area">
+                    <option value="">All area</option>
+                    @foreach($areas as $area)
+                    @if($area->id == $area_id)
+                        <option value="{{$area->id}}" selected>
+                            {{$area->name}}
+                        </option>
+                    @else
+                        <option value="{{$area->id}}">
+                            {{$area->name}}
+                        </option>
+                    @endif
+                    @endforeach
+                </select>
+                <select id="genre" name="genre" class="search__genre">
+                    <option value="">All genre</option>
+                    @foreach($genres as $genre)
+                    @if($genre->id == $genre_id)
+                        <option value="{{$genre->id}}" selected>
+                            {{$genre->name}}
+                        </option>
+                    @else
+                        <option value="{{$genre->id}}">
+                            {{$genre->name}}
+                        </option>
+                    @endif
+                    @endforeach
+                </select>
+                <div class="search__shopname">
+                    <img src="/image/search.png" class="search-img">
+                    <x-input id="shopname" class="input"
+                                type="text"
+                                name="shopname"
+                                placeholder="Search ..."
+                                value="{{$shopname}}"></x-input>
+                </div>
+            </form>
+
+            <form method="GET" action="{{ route('shop.index') }}" class="search-form__mobile">
+                @csrf
+                <div class="m-content-box">
+                    <label for="area">都道府県</label>
+                    <select id="area" name="area" class="m-search__area">
+                        <option value="">All area</option>
+                        @foreach($areas as $area)
+                        @if($area->id == $area_id)
+                            <option value="{{$area->id}}" selected>
+                                {{$area->name}}
+                            </option>
+                        @else
+                            <option value="{{$area->id}}">
+                                {{$area->name}}
+                            </option>
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="m-content-box">
+                    <label for="genre">ジャンル</label>
+                    <select id="genre" name="genre" class="m-search__genre">
+                        <option value="">All genre</option>
+                        @foreach($genres as $genre)
+                        @if($genre->id == $genre_id)
+                            <option value="{{$genre->id}}" selected>
+                                {{$genre->name}}
+                            </option>
+                        @else
+                            <option value="{{$genre->id}}">
+                                {{$genre->name}}
+                            </option>
+                        @endif
+                        @endforeach
+                    </select>
+                </div>
+                <div class="m-search__shopname">
+                    <img src="/image/search.png" class="m-search-img">
+                    <x-input id="shopname" class="m-input"
+                                type="text"
+                                name="shopname"
+                                placeholder="Search ..."
+                                value="{{$shopname}}"></x-input>
+                </div>
+            </form>
+
             <div class="wrapper">
                     @foreach($shops as $shop)
                         <div class="card">
