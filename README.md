@@ -22,7 +22,7 @@ git clone https://github.com/acacia8628/resepj.git
 
 cd resepj
 
-composer install
+composer update
 
 .env.example => .env その後.envファイル内編集
 
