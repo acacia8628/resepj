@@ -88,6 +88,10 @@
     padding: 20px;
     margin-bottom: 10px;
 }
+.comment{
+    width: 70%;
+    overflow-wrap: break-word;
+}
 .review-no-content {
     margin-bottom: 20px;
 }
