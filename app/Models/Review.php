@@ -9,8 +9,6 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $guarded = array('id');
-
     protected $fillable =[
         'user_id',
         'shop_id',
@@ -21,8 +19,8 @@ class Review extends Model
     public function score_percentage()
     {
         $score = $this->score;
-        if(!empty($score)){
-            return $score*20;
+        if (!empty($score)) {
+            return $score * 20;
         }
     }
 
