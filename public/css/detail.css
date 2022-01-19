@@ -87,9 +87,10 @@
     border-radius: 5px;
     padding: 20px;
     margin-bottom: 10px;
+    width: 100%;
 }
 .comment{
-    width: 70%;
+    width: 60%;
     overflow-wrap: break-word;
 }
 .review-no-content {
