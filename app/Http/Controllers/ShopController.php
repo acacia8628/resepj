@@ -18,17 +18,17 @@ class ShopController extends Controller
 
         $query = Shop::query();
 
-        if(!empty($shopname)){
-            $query->where('name', 'like', '%'.$shopname.'%');
+        if (!empty($shopname)) {
+            $query->where('name', 'like', '%' . $shopname . '%');
         }
-        if(!empty($area_id)){
+        if (!empty($area_id)) {
             $query->where('area_id', $area_id);
         }
-        if(!empty($genre_id)){
+        if (!empty($genre_id)) {
             $query->where('genre_id', $genre_id);
         }
 
-        $shops = $query->with(["area","genre","likes","reviews"])->paginate(12);
+        $shops = $query->with(["area", "genre", "likes", "reviews"])->paginate(12);
         $genres = Genre::all();
         $areas = Area::all();
 
@@ -46,32 +46,10 @@ class ShopController extends Controller
     public function show($id)
     {
         $shop = Shop::find($id);
-        $times = [
-            '17:00:00',
-            '17:30:00',
-            '18:00:00',
-            '18:30:00',
-            '19:00:00',
-            '19:30:00',
-            '20:00:00',
-            '20:30:00',
-            '21:00:00',
-            '21:30:00',
-        ];
-        $numbers = [
-            '1',
-            '2',
-            '3',
-            '4',
-            '5',
-            '6',
-            '7',
-            '8',
-            '9',
-            '10'
-        ];
-        $reviews = Review::where('shop_id',$id)
-            ->orderBy('score','desc')
+        $times = config('times');
+        $numbers = config('numbers');
+        $reviews = Review::where('shop_id', $id)
+            ->orderBy('score', 'desc')
             ->limit(3)
             ->get();
 
@@ -81,6 +59,6 @@ class ShopController extends Controller
             'numbers' => $numbers,
             'reviews' => $reviews,
         ];
-        return view('detail',$items);
+        return view('detail', $items);
     }
 }
