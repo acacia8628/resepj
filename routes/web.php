@@ -8,6 +8,14 @@ use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReviewController;
 
+Route::middleware(['auth','can:isAdmin'])->group(function(){
+    
+});
+
+Route::middleware(['auth','can:isStoreManager'])->group(function(){
+    
+});
+
 Route::get('/',[ShopController::class,'index'])->name(
     'shop.index'
 );
@@ -20,6 +28,7 @@ Route::get('/done',[ReserveController::class,'index'])->middleware(['auth'])->na
 Route::get('/mypage',[UserController::class,'index'])->middleware(['auth'])->name(
     'user.index'
 );
+
 Route::resource('users',UserController::class)->middleware(['auth'])->only([
     'show'
 ]);

@@ -88,8 +88,7 @@ class Shop extends Model
         /* 対象shopがレビューされていた場合、「score配列」の平均を出す
         「*20」は5段階評価をパーセンテージに変換するため（$average:5 = x:100） */
         if (in_array($shop_id, $reviews_shop_id)){
-            $score_sum = array_sum($reviews_score);
-            $average = $score_sum/count($reviews_score);
+            $average = array_sum($reviews_score)/count($reviews_score);
 
             return $average*20;
         } else {
@@ -109,8 +108,7 @@ class Shop extends Model
         }
 
         if (in_array($shop_id, $reviews_shop_id)){
-            $score_sum = array_sum($reviews_score);
-            $average = $score_sum/count($reviews_score);
+            $average = array_sum($reviews_score)/count($reviews_score);
 
             return number_format($average, 1);
         } else {

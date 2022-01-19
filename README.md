@@ -39,6 +39,8 @@ Composer version 2.1.9
 
 PHP 7.4.25
 
+Laravel 8
+
 ## 文責
 
 * 作成者: acacia8628
