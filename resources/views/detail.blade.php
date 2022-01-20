@@ -136,19 +136,19 @@
                     <tr>
                       <th class="th">Date</th>
                       <td class="td">
-                        <div id="date"></div>
+                        <div id="date">{{ \Carbon\Carbon::now()->format("Y/m/d") }}</div>
                       </td>
                     </tr>
                     <tr>
                       <th class="th">Time</th>
                       <td class="td">
-                        <div id="time"></div>
+                        <div id="time">17:00</div>
                       </td>
                     </tr>
                     <tr>
                       <th class="th">Number</th>
                       <td class="td">
-                        <div id="number"></div>
+                        <div id="number">1人</div>
                       </td>
                     </tr>
                   </table>

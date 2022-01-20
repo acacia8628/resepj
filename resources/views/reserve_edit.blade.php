@@ -75,19 +75,19 @@
                     <tr>
                       <th class="th">Date</th>
                       <td class="td">
-                        <div id="date"></div>
+                        <div id="date">{{$reserve->reserve_date}}</div>
                       </td>
                     </tr>
                     <tr>
                       <th class="th">Time</th>
                       <td class="td">
-                        <div id="time"></div>
+                        <div id="time">{{substr($reserve->reserve_time, 0, 5)}}</div>
                       </td>
                     </tr>
                     <tr>
                       <th class="th">Number</th>
                       <td class="td">
-                        <div id="number"></div>
+                        <div id="number">{{$reserve->reserve_number}}人</div>
                       </td>
                     </tr>
                   </table>
