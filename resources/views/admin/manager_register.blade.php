@@ -75,7 +75,14 @@
                                 />
                 </span>
             </div>
-            <input type="text" name="select_shop" placeholder="店ID">
+            <select id="shop" name="shop" class="search__area">
+                <option value="">All shops</option>
+                @foreach($shops as $shop)
+                    <option value="{{$shop->id}}">
+                        {{$shop->name}}
+                    </option>
+                @endforeach
+            </select>
             <input type="hidden" name="role" value="3">
 
             <div class="item-container">

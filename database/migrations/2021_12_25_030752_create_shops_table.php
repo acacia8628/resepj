@@ -25,6 +25,7 @@ class CreateShopsTable extends Migration
                 ->constrained('users')
                 ->onDelete('cascade')
                 ->default(null);
+            $table->unique(['user_id']);
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });

@@ -10,22 +10,23 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class RegisterController extends Controller
+class AdminRegisterController extends Controller
 {
     public function create()
     {
-        return view('admin.manager_register');
+        $shops = Shop::all();
+        return view('admin.manager_register', ['shops' => $shops]);
     }
 
     public function store(RegisterRequest $request)
     {
-        $shop_id = $request->select_shop;
+        $shop_id = $request->input('shop');
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'role' => $request->role,
+            'role' => '3',
         ]);
 
         event(new Registered($user));
