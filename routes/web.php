@@ -9,7 +9,10 @@ use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
-use App\Http\Controllers\ManagerController;
+use App\Http\Controllers\Admin\AdminShopController;
+use App\Http\Controllers\Manager\ManagerLoginController;
+use App\Http\Controllers\Manager\ManagerShopController;
+use App\Http\Controllers\Manager\ManagerReserveController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/done', [ReserveController::class, 'index'])->name(
@@ -36,7 +39,7 @@ Route::group(['middleware' => 'guest'], function () {
     Route::get('/admin/login', [AdminLoginController::class, 'create'])->name(
         'admin.login'
     );
-    Route::get('/manager/login', [ManagerController::class, 'create'])->name(
+    Route::get('/manager/login', [ManagerLoginController::class, 'create'])->name(
         'manager.login'
     );
 });
@@ -47,14 +50,10 @@ Route::get('/', [ShopController::class, 'index'])->name(
 Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name(
     'shop.show'
 );
-
-Route::resource('logins', AdminLoginController::class)->only([
+Route::resource('adminLogins', AdminLoginController::class)->only([
     'store'
 ]);
-Route::resource('registers', AdminRegisterController::class)->only([
-    'store'
-]);
-Route::resource('managers', ManagerController::class)->only([
+Route::resource('managerLogins', ManagerLoginController::class)->only([
     'store'
 ]);
 Route::resource('thanks', ThanksController::class)->only([
@@ -69,19 +68,28 @@ Route::prefix('admin')->middleware(['auth', 'can:isAdmin'])->group(function () {
         'admin.index'
     );
     Route::get('/register', [AdminRegisterController::class, 'create'])->name(
-        'admin.manager_register'
+        'admin.managerRegister'
     );
-    Route::get('/shop_register', [ShopController::class, 'create'])->name(
-        'admin.shop_register'
+    Route::get('/shop_register', [AdminShopController::class, 'create'])->name(
+        'admin.shopRegister'
     );
-    Route::resource('shops', ShopController::class)->only([
+    Route::resource('adminShops', AdminShopController::class)->only([
+        'store'
+    ]);
+    Route::resource('adminRegisters', AdminRegisterController::class)->only([
         'store'
     ]);
 });
 
-Route::middleware(['auth', 'can:isStoreManager'])->group(function () {
-    Route::resource('managers', ManagerController::class)->only([
-        'index'
+Route::prefix('manager')->middleware(['auth', 'can:isShopManager'])->group(function () {
+    Route::get('/', [ManagerLoginController::class, 'index'])->name(
+        'manager.index'
+    );
+    Route::resource('managerShops', ManagerShopController::class)->only([
+        'edit', 'update'
+    ]);
+    Route::resource('managerReserves', ManagerReserveController::class)->only([
+        'show'
     ]);
 });
 

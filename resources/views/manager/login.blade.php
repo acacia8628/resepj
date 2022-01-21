@@ -13,7 +13,7 @@
         <!-- Session Status -->
         <x-auth-session-status :status="session('status')" />
 
-        <form method="POST" action="{{ route('manager.login') }}" class="form">
+        <form method="POST" action="{{ route('managerLogins.store') }}" class="form">
             @csrf
             <div class="form-ttl">Shop Manager Login</div>
 

@@ -13,7 +13,7 @@
         <!-- Session Status -->
         <x-auth-session-status :status="session('status')" />
 
-        <form method="POST" action="{{ route('logins.store') }}" class="form">
+        <form method="POST" action="{{ route('adminLogins.store') }}" class="form">
             @csrf
             <div class="form-ttl">Admin Login</div>
 

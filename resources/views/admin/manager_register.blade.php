@@ -1,5 +1,5 @@
 <div>manager_register.blade.php</div>
-<form method="POST" action="{{ route('registers.store') }}" class="form">
+<form method="POST" action="{{ route('adminRegisters.store') }}" class="form">
             @csrf
             <div class="form-ttl">Registration</div>
 

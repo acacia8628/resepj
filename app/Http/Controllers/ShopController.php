@@ -43,18 +43,6 @@ class ShopController extends Controller
         return view('index', $items);
     }
 
-    public function create()
-    {
-        $genres = Genre::all();
-        $areas = Area::all();
-
-        $items = [
-            'genres' => $genres,
-            'areas' => $areas,
-        ];
-        return view('admin.shop_register', $items);
-    }
-
     public function show($id)
     {
         $shop = Shop::find($id);
@@ -72,21 +60,5 @@ class ShopController extends Controller
             'reviews' => $reviews,
         ];
         return view('detail', $items);
-    }
-
-    public function store(Request $request)
-    {
-        $genre_id = $request->input('genre');
-        $area_id = $request->input('area');
-        $name = $request->input('shopname');
-
-        Shop::create([
-            'genre_id' => $genre_id,
-            'area_id' => $area_id,
-            'name' => $name,
-            'overview' => 'お店の概要を変更してください。',
-            'img_url' => 'お店のイメージ画像を設定してください。',
-        ]);
-        return redirect('admin');
     }
 }
