@@ -16,7 +16,8 @@ class Shop extends Model
         'area_id',
         'name',
         'overview',
-        'img_url'
+        'img_url',
+        'user_id',
     ];
 
     public function is_liked_by_auth_user()
@@ -110,6 +111,11 @@ class Shop extends Model
     public function area()
     {
         return $this->belongsTo('App\Models\Area');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
     }
 
     public function reserves()
