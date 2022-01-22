@@ -1,5 +1,5 @@
 <button type="button" onClick="history.back()">戻る</button>
-<form method="POST" action="{{ route('managerShops.update', $shop->id) }}" class="reserve">
+<form method="POST" action="{{ route('managerShops.update', $shop->id) }}" enctype="multipart/form-data" class="reserve">
   @method('PATCH')
   @csrf
   <h2 class="reserve-ttl">shop edit</h2>
@@ -43,8 +43,9 @@
         cols="40"
         class="">{{$shop->overview}}</textarea>
   </div>
+  <img src="{{ asset('storage/'.$shop->img_path) }}">
   <div>
-    <input type="text" name="img_url" value="{{$shop->img_url}}">
+    <input type="file" name="imgfile" value="">
   </div>
   <button type="submit" class="reserve-button">変更する</button>
 </form>

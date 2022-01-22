@@ -24,8 +24,8 @@ class ManagerLoginController extends Controller
 
     public function store(LoginRequest $request)
     {
+        $user_id = Auth::id();
         $request->authenticate();
-
         $request->session()->regenerate();
 
         $shop = Shop::where('user_id', $user_id)->first();

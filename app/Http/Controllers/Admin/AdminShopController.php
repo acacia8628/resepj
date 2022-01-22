@@ -33,7 +33,7 @@ class AdminShopController extends Controller
             'area_id' => $area_id,
             'name' => $name,
             'overview' => 'お店の概要を変更してください。',
-            'img_url' => 'お店のイメージ画像を設定してください。',
+            'img_path' => 'お店のイメージ画像を設定してください。',
         ]);
         return redirect('admin');
     }

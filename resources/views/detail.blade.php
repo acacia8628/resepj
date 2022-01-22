@@ -29,7 +29,7 @@
                     </div>
                   </div>
                 </div>
-                <img src="{{$shop->img_url}}" class="detail-img">
+                <img src="{{ asset('storage/'.$shop->img_path) }}" class="detail-img">
                 <div class="detail-hash">
                   <p class="detail-hash__area">#{{$shop->area->name}}</p>
                   <p class="detail-hash__genre">#{{$shop->genre->name}}</p>

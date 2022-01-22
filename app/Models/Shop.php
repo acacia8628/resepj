@@ -16,7 +16,7 @@ class Shop extends Model
         'area_id',
         'name',
         'overview',
-        'img_url',
+        'img_path',
         'user_id',
     ];
 

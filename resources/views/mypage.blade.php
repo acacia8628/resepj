@@ -60,7 +60,7 @@
                 <div class="likes">
                 @foreach($user->likes as $like)
                   <div class="card">
-                    <img class="card__img" src="{{$like->shop->img_url}}"/>
+                    <img class="card__img" src="{{ asset('storage/'.$like->shop->img_path) }}"/>
                     <div class="card__text-box">
                       <div class="card__ttl-box">
                         <h2 class="card__name">{{$like->shop->name}}</h2>

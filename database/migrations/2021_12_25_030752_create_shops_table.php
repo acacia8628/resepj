@@ -19,7 +19,7 @@ class CreateShopsTable extends Migration
             $table->foreignId('genre_id')->constrained('genres')->onDelete('cascade');
             $table->string('name');
             $table->string('overview');
-            $table->string('img_url');
+            $table->string('img_path');
             $table->foreignId('user_id')
                 ->nullable()
                 ->constrained('users')

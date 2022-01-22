@@ -10,7 +10,7 @@
             <div class="review-form">
                 <div class="review-name">{{$shop->name}}</div>
                 <div class="review-img-box">
-                    <img class="review-img" src="{{$shop->img_url}}">
+                    <img class="review-img" src="{{ asset('storage/'.$shop->img_path) }}">
                 </div>
 
                 @if($shop->is_reviewed_by_auth_user())

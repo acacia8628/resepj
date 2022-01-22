@@ -139,7 +139,7 @@
             <div class="wrapper">
                     @foreach($shops as $shop)
                         <div class="card">
-                            <img class="card__img" src="{{$shop->img_url}}"/>
+                            <img class="card__img" src="{{ asset('storage/'.$shop->img_path) }}"/>
                             <div class="card__text-box">
                                 <div class="card__ttl-box">
                                     <h2 class="card__name">{{$shop->name}}</h2>

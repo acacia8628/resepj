@@ -32,7 +32,8 @@ class ManagerShopController extends Controller
         $area_id = $request->input('area');
         $name = $request->input('shopname');
         $overview = $request->input('overview');
-        $img_url = $request->input('img_url');
+        $img_name = $request->file('imgfile')->getClientOriginalName();
+        $img_path = $request->file('imgfile')->storeAs('shop_img', $img_name, 'public');
 
         Shop::where('user_id', $user_id)
             ->update([
@@ -40,7 +41,7 @@ class ManagerShopController extends Controller
                 'area_id' => $area_id,
                 'name' => $name,
                 'overview' => $overview,
-                'img_url' => $img_url,
+                'img_path' => $img_path,
             ]);
         return redirect('manager');
     }
