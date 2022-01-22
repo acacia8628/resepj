@@ -83,13 +83,6 @@ Route::prefix('admin')->middleware(['auth', 'can:isAdmin'])->group(function () {
 });
 
 Route::prefix('manager')->middleware(['auth', 'can:isShopManager'])->group(function () {
-    Route::get('/mail', [MailSendController::class, 'individualSend'])->name(
-        'manager.individualSend'
-    );
-    Route::get('/mails', [MailSendController::class, 'allSend'])->name(
-        'manager.allSend'
-    );
-
     Route::get('/', [ManagerLoginController::class, 'index'])->name(
         'manager.index'
     );
@@ -99,6 +92,12 @@ Route::prefix('manager')->middleware(['auth', 'can:isShopManager'])->group(funct
     Route::resource('managerReserves', ManagerReserveController::class)->only([
         'show'
     ]);
+    Route::get('/mail', [MailSendController::class, 'individualSend'])->name(
+        'manager.individualSend'
+    );
+    Route::get('/mails', [MailSendController::class, 'allSend'])->name(
+        'manager.allSend'
+    );
 });
 
 Route::get('/dashboard', function () {

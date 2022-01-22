@@ -48,7 +48,7 @@ class MailSendController extends Controller
             'name' => $shop->name
         ]);
 
-        foreach($reserves as $reserve){
+        foreach ($reserves as $reserve) {
             Mail::to($reserve->user)
             ->send(new SendIndividualToCustomer());
         }
