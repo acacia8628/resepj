@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMailToCustomer extends Mailable
+class SendIndividualToCustomer extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -27,7 +27,7 @@ class SendMailToCustomer extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.test')
+        return $this->view('emails.individual')
                 ->subject('お知らせ');
 
     }

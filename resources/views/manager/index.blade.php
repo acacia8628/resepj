@@ -9,6 +9,3 @@
   <button>予約情報一覧</button>
 </form>
 <img src="{{ asset('storage/'.$shop->img_path) }}">
-@if(!empty($message))
-<div>{{$message}}</div>
-@endif

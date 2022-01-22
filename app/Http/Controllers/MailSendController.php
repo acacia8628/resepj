@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use App\Mail\SendMailToCustomer;
-use Mail;
+use App\Mail\SendIndividualToCustomer;
 use App\Models\User;
+use Mail;
 
 class MailSendController extends Controller
 {
@@ -24,7 +24,7 @@ class MailSendController extends Controller
         ]);
 
         Mail::to($receive_user)
-            ->send(new SendMailToCustomer());
+            ->send(new SendIndividualToCustomer());
         return redirect('manager');
     }
 }
