@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\AdminShopController;
 use App\Http\Controllers\Manager\ManagerLoginController;
 use App\Http\Controllers\Manager\ManagerShopController;
 use App\Http\Controllers\Manager\ManagerReserveController;
+use App\Http\Controllers\MailSendController;
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/done', [ReserveController::class, 'index'])->name(
@@ -82,6 +83,9 @@ Route::prefix('admin')->middleware(['auth', 'can:isAdmin'])->group(function () {
 });
 
 Route::prefix('manager')->middleware(['auth', 'can:isShopManager'])->group(function () {
+    Route::get('/mail', [MailSendController::class, 'individualSend'])->name(
+        'manager.individualSend'
+    );
     Route::get('/', [ManagerLoginController::class, 'index'])->name(
         'manager.index'
     );

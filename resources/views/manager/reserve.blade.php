@@ -26,5 +26,11 @@
       </tr>
     </table>
   </div>
+  <form method="GET" action="{{ route('manager.individualSend') }}">
+    @csrf
+    <input type="hidden" name="shop_name" value="{{$reserve->shop->name}}">
+    <input type="hidden" name="user_id" value="{{$reserve->user_id}}">
+    <button>メールを送信する</button>
+  </form>
   @endforeach
 </div>
