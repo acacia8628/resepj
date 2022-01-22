@@ -1,4 +1,9 @@
 <button type="button" onClick="history.back()">戻る</button>
+<form method="GET" action="{{ route('manager.allSend') }}">
+  @csrf
+  <input type="hidden" name="shop_id" value="{{$shop->id}}">
+  <button>予約者全員に送信</button>
+</form>
 <div class="reserves-box">
   <h2 class="reserves-ttl">予約状況</h2>
   @foreach($reserves as $reserve)
