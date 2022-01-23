@@ -15,7 +15,7 @@ use App\Http\Controllers\Manager\ManagerShopController;
 use App\Http\Controllers\Manager\ManagerReserveController;
 use App\Http\Controllers\Emails\MailSendController;
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth', 'verified'], function () {
     Route::get('/done', [ReserveController::class, 'index'])->name(
         'reserve.index'
     );

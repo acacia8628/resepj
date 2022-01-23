@@ -1,100 +1,112 @@
-<div>manager_register.blade.php</div>
-<form method="POST" action="{{ route('adminRegisters.store') }}" class="form">
-            @csrf
-            <div class="form-ttl">Registration</div>
+<x-guest-layout>
+    <x-slot name="style">
+        <link rel="stylesheet" href="{{ asset('css/admin/manager_register.css') }}">
+    </x-slot>
 
-            <!-- Name -->
-            <div class="item-container">
-                <label for="name">
-                    <img src="/image/man.png" class="icon">
-                </label>
-                <span class="input-box">
-                    <x-input id="name" class="input"
-                            type="text"
-                            name="name"
-                            :value="old('name')"
-                            placeholder="Username"
-                            autofocus />
-                </span>
-            </div>
-            @if($errors->has('name'))
-            <div class="error">
-                *{{$errors->first('name')}}
-            </div>
-            @endif
+    <x-auth-card>
+        <x-slot name="logo">
+            <header class="header">
+                <x-application-logo/>
+            </header>
+        </x-slot>
 
-            <!-- Email Address -->
-            <div class="item-container">
-                <label for="email">
-                    <img src="/image/email.png" class="icon">
-                </label>
-                <span class="input-box">
-                    <x-input id="email" class="input"
-                                type="email"
-                                name="email"
-                                :value="old('email')"
-                                placeholder="Email"
+        <div class="content">
+            <h2 class="ttl">店舗代表者作成画面</h2>
+            <form method="POST" action="{{ route('adminRegisters.store') }}" class="form">
+                @csrf
+
+                <div class="item-container">
+                    <label for="name">
+                        <img src="/image/man.png" class="icon">
+                    </label>
+                    <span class="input-box">
+                        <x-input id="name" class="input"
+                                type="text"
+                                name="name"
+                                :value="old('name')"
+                                placeholder="Username"
                                 autofocus />
-                </span>
-            </div>
-            @if($errors->has('email'))
-            <div class="error">
-                *{{$errors->first('email')}}
-            </div>
-            @endif
+                    </span>
+                </div>
+                @if($errors->has('name'))
+                <div class="error">
+                    *{{$errors->first('name')}}
+                </div>
+                @endif
 
-            <!-- Password -->
-            <div class="item-container">
-                <label for="password">
-                    <img src="/image/password.png" class="icon">
-                </label>
-                <span class="input-box">
-                    <x-input id="password" class="input"
-                                type="password"
-                                name="password"
-                                placeholder="Password"
-                                autocomplete="new-password" />
-                </span>
-            </div>
-            @if($errors->has('password'))
-            <div class="error">
-                *{{$errors->first('password')}}
-            </div>
-            @endif
+                <div class="item-container">
+                    <label for="email">
+                        <img src="/image/email.png" class="icon">
+                    </label>
+                    <span class="input-box">
+                        <x-input id="email" class="input"
+                                    type="email"
+                                    name="email"
+                                    :value="old('email')"
+                                    placeholder="Email"
+                                    autofocus />
+                    </span>
+                </div>
+                @if($errors->has('email'))
+                <div class="error">
+                    *{{$errors->first('email')}}
+                </div>
+                @endif
 
-            <!-- Confirm Password -->
-            <div class="item-container">
-                <label for="password">
-                    <img src="/image/password.png" class="icon">
-                </label>
-                <span class="input-box">
-                    <x-input id="password_confirmation" class="input"
-                                type="password"
-                                name="password_confirmation"
-                                placeholder="Password(確認用)"
-                                />
-                </span>
-            </div>
-            <select id="shop" name="shop" class="search__area">
-                <option value="">All shops</option>
-                @foreach($shops as $shop)
-                    <option value="{{$shop->id}}">
-                        {{$shop->name}}
-                    </option>
-                @endforeach
-            </select>
-            <input type="hidden" name="role" value="3">
+                <div class="item-container">
+                    <label for="password">
+                        <img src="/image/password.png" class="icon">
+                    </label>
+                    <span class="input-box">
+                        <x-input id="password" class="input"
+                                    type="password"
+                                    name="password"
+                                    placeholder="Password"
+                                    autocomplete="new-password" />
+                    </span>
+                </div>
+                @if($errors->has('password'))
+                <div class="error">
+                    *{{$errors->first('password')}}
+                </div>
+                @endif
 
-            <div class="item-container">
-                <x-button class="button">
-                    {{ __('登録') }}
-                </x-button>
-            </div>
-        </form>
+                <div class="item-container">
+                    <label for="password">
+                        <img src="/image/password.png" class="icon">
+                    </label>
+                    <span class="input-box">
+                        <x-input id="password_confirmation" class="input"
+                                    type="password"
+                                    name="password_confirmation"
+                                    placeholder="Password(確認用)"
+                                    />
+                    </span>
+                </div>
 
-<style>
-  .icon{
-    width: 25px;
-    height: 25px;
-  }
-</style>
+                <div class="item-container">
+                    <select id="shop" name="shop" class="select-shop">
+                        <option value="">ショップを選択する</option>
+                        @foreach($shops as $shop)
+                            <option value="{{$shop->id}}">
+                                {{$shop->name}}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                @if($errors->has('shop'))
+                <div class="error">
+                    *{{$errors->first('shop')}}
+                </div>
+                @endif
+
+                <input type="hidden" name="role" value="3">
+                <div class="item-container">
+                    <x-button class="button">
+                        {{ __('登録') }}
+                    </x-button>
+                </div>
+            </form>
+        </div>
+    </x-auth-card>
+</x-guest-layout>

@@ -3,20 +3,20 @@
     <nav class="nav" id="nav">
         <ul class="ul">
             <li class="li">
-                <a class="link" href="{{ route('shop.index') }}">Home</a>
+                <a class="logo-link" href="{{ route('shop.index') }}">Home</a>
             </li>
             <li class="li">
-                <form name="logout_form" method="POST" action="{{ route('logout') }}" class="form">
+                <form name="logout_form" method="POST" action="{{ route('logout') }}">
                     @csrf
                     <input type="hidden" name="logout" class="link-logout__input">
                 </form>
-                <a class="link" href="{{ route('logout') }}"
+                <a class="logo-link" href="{{ route('logout') }}"
                     onclick="document.logout_form.submit();return false;"
                     >Logout
                 </a>
             </li>
             <li class="li">
-                <a class="link" href="{{ route('user.index') }}">Mypage</a>
+                <a class="logo-link" href="{{ route('user.index') }}">Mypage</a>
             </li>
         </ul>
     </nav>
@@ -24,13 +24,13 @@
     <nav class="nav" id="nav">
         <ul class="ul">
             <li class="li">
-                <a class="link" href="{{ route('shop.index') }}">Home</a>
+                <a class="logo-link" href="{{ route('shop.index') }}">Home</a>
             </li>
             <li class="li">
-                <a class="link" href="{{ route('register') }}">Registration</a>
+                <a class="logo-link" href="{{ route('register') }}">Registration</a>
             </li>
             <li class="li">
-                <a class="link" href="{{ route('login') }}">Login</a>
+                <a class="logo-link" href="{{ route('login') }}">Login</a>
             </li>
         </ul>
     </nav>
@@ -75,7 +75,7 @@
         margin-left: 20px;
         text-decoration: none;
     }
-    .link{
+    .logo-link{
         font-size: 24px;
         font-weight: bold;
         text-decoration: none;

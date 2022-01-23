@@ -1,0 +1,22 @@
+.header {
+    padding: 30px 5% 10px;
+}
+.content{
+  margin:50px 10%;
+}
+.ttl{
+  font-size: 32px;
+  margin-bottom: 30px;
+  color: #1587D3;
+}
+.link{
+  display:block;
+  text-decoration: none;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color:#000;
+}
+.link::before{
+  content:"-";
+  margin-right:10px;
+}

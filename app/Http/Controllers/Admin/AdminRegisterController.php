@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Models\Shop;
-use App\Http\Requests\RegisterRequest;
+use App\Http\Requests\Admin\ManagerRegisterRequest;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -18,7 +18,7 @@ class AdminRegisterController extends Controller
         return view('admin.manager_register', ['shops' => $shops]);
     }
 
-    public function store(RegisterRequest $request)
+    public function store(ManagerRegisterRequest $request)
     {
         $shop_id = $request->input('shop');
 
