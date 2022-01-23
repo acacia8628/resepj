@@ -29,9 +29,9 @@
                 <p class="label">店舗名</p>
                 <input type="text" name="shopname" value="{{$shop->name}}" class="input">
               </div>
-              @if($errors->has('shop_id'))
+              @if($errors->has('shopname'))
               <div class="error">
-                *{{$errors->first('shop_id')}}
+                *{{$errors->first('shopname')}}
               </div>
               @endif
 
@@ -47,6 +47,11 @@
                 @endforeach
                 </select>
               </div>
+              @if($errors->has('genre'))
+              <div class="error">
+                *{{$errors->first('genre')}}
+              </div>
+              @endif
 
               <div class="item-container">
                 <p class="label">エリア</p>
@@ -60,6 +65,11 @@
                 @endforeach
                 </select>
               </div>
+              @if($errors->has('area'))
+              <div class="error">
+                *{{$errors->first('area')}}
+              </div>
+              @endif
 
               <div class="item-container">
                 <p class="label">概要</p>
@@ -69,6 +79,11 @@
                     cols="40"
                     class="overview">{{$shop->overview}}</textarea>
               </div>
+              @if($errors->has('overview'))
+              <div class="error">
+                *{{$errors->first('overview')}}
+              </div>
+              @endif
 
               <div class="item-container">
                 <p class="label">現在の画像</p>
@@ -78,6 +93,11 @@
                 <p class="label">変更したい画像を選択</p>
                 <input type="file" name="imgfile" value="" accept='image/*' onchange="previewImage(this);">
               </div>
+              @if($errors->has('imgfile'))
+              <div class="error">
+                *{{$errors->first('imgfile')}}
+              </div>
+              @endif
               <div class="item-container">
                 <p class="label">プレビュー</p>
                 <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:400px;">
