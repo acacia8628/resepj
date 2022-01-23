@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -13,7 +13,7 @@ class ShopRegisterRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class ShopRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'area' => ['required'],
+            'genre' => ['required'],
+            'shopname' => ['required', 'string', 'max:255'],
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'area.required' => 'エリアを選択してください',
+            'genre.required' => 'ジャンルを選択してください',
+            'shopname.required' => '店舗名を入力してください',
+            'shopname.string' => '文字列を入力してください',
+            'shopname.max' => '店舗名は255文字以内にしてください',
         ];
     }
 }

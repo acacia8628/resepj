@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\ShopRegisterRequest;
 use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
@@ -22,7 +22,7 @@ class AdminShopController extends Controller
         return view('admin.shop_register', $items);
     }
 
-    public function store(Request $request)
+    public function store(ShopRegisterRequest $request)
     {
         $genre_id = $request->input('genre');
         $area_id = $request->input('area');

@@ -1,0 +1,44 @@
+.header {
+    padding: 30px 5% 10px;
+}
+.content {
+    margin: 50px 10%;
+}
+.ttl {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #1587d3;
+}
+.item-container {
+    margin-bottom: 20px;
+}
+.input {
+    height: 2em;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+}
+.select {
+  display: block;
+    height: 2em;
+    font-size: 16px;
+    border-radius: 5px;
+    margin-bottom:20px;
+    padding: 5px 10px;
+    border: none;
+    outline: none;
+}
+.button {
+    width: 100px;
+    height: 2em;
+    font-size: 16px;
+    background-color: #1587d3;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+}
+.error{
+  margin-bottom: 10px;
+}

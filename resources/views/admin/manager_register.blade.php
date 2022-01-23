@@ -107,6 +107,7 @@
                     </x-button>
                 </div>
             </form>
+            <button type="button" onClick="history.back()">戻る</button>
         </div>
     </x-auth-card>
 </x-guest-layout>
