@@ -13,7 +13,7 @@ class ManagerLoginController extends Controller
     {
         $user_id = Auth::id();
 
-        $shop = Shop::where('user_id', $user_id)->first();
+        $shop = Shop::with(['user'])->where('user_id', $user_id)->first();
         return view('manager.index', ['shop' => $shop]);
     }
 
@@ -28,7 +28,7 @@ class ManagerLoginController extends Controller
         $request->authenticate();
         $request->session()->regenerate();
 
-        $shop = Shop::where('user_id', $user_id)->first();
+        $shop = Shop::with(['user'])->where('user_id', $user_id)->first();
         return redirect()->intended('manager')->with(['shop' => $shop]);
     }
 }

@@ -14,9 +14,10 @@ class ManagerReserveController extends Controller
         $shop = Shop::find($id);
         $current_date = Carbon::now()->format('Y-m-d');
 
-        $reserves = Reserve::where('shop_id', $id)
+        $reserves = Reserve::with(['user'])
+            ->where('shop_id', $id)
             ->whereDate('reserve_date', '>', $current_date)
-            ->get();
+            ->simplePaginate(10);
 
         $items = [
             'reserves' => $reserves,

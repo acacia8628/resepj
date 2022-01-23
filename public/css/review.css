@@ -162,6 +162,15 @@
 .error {
     padding: 5px 20px;
 }
+.link-svg {
+    display: inline-block;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+}
 @media screen and (max-width: 768px) {
     .review-form {
         width: 60%;
