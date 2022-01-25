@@ -8,4 +8,9 @@ class ThanksController extends Controller
     {
         return view('thanks');
     }
+
+    public function create()
+    {
+        return view('provisional_register');
+    }
 }

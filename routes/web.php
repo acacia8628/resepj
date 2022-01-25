@@ -15,7 +15,7 @@ use App\Http\Controllers\Manager\ManagerShopController;
 use App\Http\Controllers\Manager\ManagerReserveController;
 use App\Http\Controllers\Emails\MailSendController;
 
-Route::group(['middleware' => 'auth', 'verified'], function () {
+Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('/done', [ReserveController::class, 'index'])->name(
         'reserve.index'
     );
@@ -51,6 +51,9 @@ Route::get('/', [ShopController::class, 'index'])->name(
 Route::get('/detail/{shop_id}', [ShopController::class, 'show'])->name(
     'shop.show'
 );
+Route::get('/provisional', [ThanksController::class, 'create'])->name(
+    'provisional'
+);
 Route::resource('adminLogins', AdminLoginController::class)->only([
     'store'
 ]);
@@ -58,7 +61,7 @@ Route::resource('managerLogins', ManagerLoginController::class)->only([
     'store'
 ]);
 Route::resource('thanks', ThanksController::class)->only([
-    'index'
+    'index', 'create'
 ]);
 Route::resource('reviews', ReviewController::class)->only([
     'show'
