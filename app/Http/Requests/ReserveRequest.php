@@ -25,7 +25,7 @@ class ReserveRequest extends FormRequest
     {
         return [
             'shop_id' => ['required', 'string', 'max:255'],
-            'r_date' => ['required', 'date', 'after:tomorrow'],
+            'r_date' => ['required', 'date', 'after:today'],
             'r_time' => ['required', 'date_format:H:i:s'],
             'r_number' => ['required', 'numeric'],
         ];
