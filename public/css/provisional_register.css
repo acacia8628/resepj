@@ -17,8 +17,19 @@
 .content-text {
     display: block;
     text-align: center;
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 20px;
+}
+.button {
+    display:block;
+    height: 2em;
+    font-size: 16px;
+    padding: 5px 10px;
+    margin: 0 auto;
+    background-color: #305dff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
 }
 @media screen and (max-width: 768px) {
     .content {
