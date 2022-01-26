@@ -39,13 +39,13 @@
                         @endif
                         @endforeach
                     </select>
-                    <div class="search__shopname">
+                    <div class="search__shop-name">
                         <img src="/image/search.png" class="search-img">
-                        <x-input id="shopname" class="input"
+                        <x-input id="shop_name" class="input"
                                     type="text"
-                                    name="shopname"
+                                    name="shop_name"
                                     placeholder="Search ..."
-                                    value="{{$shopname}}"></x-input>
+                                    value="{{$shop_name}}"></x-input>
                     </div>
                 </form>
             </header>
@@ -80,13 +80,13 @@
                     @endif
                     @endforeach
                 </select>
-                <div class="search__shopname">
+                <div class="search__shop-name">
                     <img src="/image/search.png" class="search-img">
-                    <x-input id="shopname" class="input"
+                    <x-input id="shop_name" class="input"
                                 type="text"
-                                name="shopname"
+                                name="shop_name"
                                 placeholder="Search ..."
-                                value="{{$shopname}}"></x-input>
+                                value="{{$shop_name}}"></x-input>
                 </div>
             </form>
 
@@ -126,13 +126,13 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="m-search__shopname">
+                <div class="m-search__shop-name">
                     <img src="/image/search.png" class="m-search-img">
-                    <x-input id="shopname" class="m-input"
+                    <x-input id="shop_name" class="m-input"
                                 type="text"
-                                name="shopname"
+                                name="shop_name"
                                 placeholder="Search ..."
-                                value="{{$shopname}}"></x-input>
+                                value="{{$shop_name}}"></x-input>
                 </div>
             </form>
 

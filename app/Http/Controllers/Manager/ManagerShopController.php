@@ -28,14 +28,13 @@ class ManagerShopController extends Controller
     public function update(ShopEditRequest $request, $id)
     {
         $user_id = Auth::id();
-        $genre_id = $request->input('genre');
-        $area_id = $request->input('area');
-        $name = $request->input('shopname');
+        $genre_id = $request->input('genre_id');
+        $area_id = $request->input('area_id');
+        $name = $request->input('shop_name');
         $overview = $request->input('overview');
 
-        if (!empty($request->file('imgfile'))) {
-            $img_name = $request->file('imgfile')->getClientOriginalName();
-            $img_path = $request->file('imgfile')->storeAs('shop_img', $img_name, 'public');
+        if (!empty($request->file('img_file'))) {
+            $img_path = $request->file('img_file')->store('public/shop_img');
 
             Shop::where('user_id', $user_id)
                 ->update([

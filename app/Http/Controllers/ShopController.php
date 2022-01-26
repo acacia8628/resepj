@@ -12,14 +12,14 @@ class ShopController extends Controller
 {
     public function index(Request $request)
     {
-        $shopname = $request->input('shopname');
+        $shop_name = $request->input('shop_name');
         $area_id = $request->input('area');
         $genre_id = $request->input('genre');
 
         $query = Shop::query();
 
-        if (!empty($shopname)) {
-            $query->where('name', 'like', '%' . $shopname . '%');
+        if (!empty($shop_name)) {
+            $query->where('name', 'like', '%' . $shop_name . '%');
         }
         if (!empty($area_id)) {
             $query->where('area_id', $area_id);
@@ -36,7 +36,7 @@ class ShopController extends Controller
             'shops' => $shops,
             'genres' => $genres,
             'areas' => $areas,
-            'shopname' => $shopname,
+            'shop_name' => $shop_name,
             'area_id' => $area_id,
             'genre_id' => $genre_id,
         ];

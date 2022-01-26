@@ -44,17 +44,17 @@
 
                 <div class="item-container">
                     <span class="input-box">
-                        <x-input id="shopname" class="input"
+                        <x-input id="shop_name" class="input"
                                 type="text"
-                                name="shopname"
-                                :value="old('shopname')"
-                                placeholder="shopname"
+                                name="shop_name"
+                                :value="old('shop_name')"
+                                placeholder="shop_name"
                                 autofocus />
                     </span>
                 </div>
-                @if($errors->has('shopname'))
+                @if($errors->has('shop_name'))
                 <div class="error">
-                    *{{$errors->first('shopname')}}
+                    *{{$errors->first('shop_name')}}
                 </div>
                 @endif
 

@@ -26,7 +26,7 @@ class AdminShopController extends Controller
     {
         $genre_id = $request->input('genre');
         $area_id = $request->input('area');
-        $name = $request->input('shopname');
+        $name = $request->input('shop_name');
 
         Shop::create([
             'genre_id' => $genre_id,

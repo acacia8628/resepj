@@ -27,17 +27,17 @@
               @csrf
               <div class="item-container">
                 <p class="label">店舗名</p>
-                <input type="text" name="shopname" value="{{$shop->name}}" class="input">
+                <input type="text" name="shop_name" value="{{$shop->name}}" class="input">
               </div>
-              @if($errors->has('shopname'))
+              @if($errors->has('shop_name'))
               <div class="error">
-                *{{$errors->first('shopname')}}
+                *{{$errors->first('shop_name')}}
               </div>
               @endif
 
               <div class="item-container">
                 <p class="label">ジャンル</p>
-                <select name="genre" class="select">
+                <select name="genre_id" class="select">
                 @foreach($genres as $genre)
                   @if($shop->genre_id == $genre->id)
                     <option value="{{$genre->id}}" selected>{{$genre->name}}</option>
@@ -47,15 +47,15 @@
                 @endforeach
                 </select>
               </div>
-              @if($errors->has('genre'))
+              @if($errors->has('genre_id'))
               <div class="error">
-                *{{$errors->first('genre')}}
+                *{{$errors->first('genre_id')}}
               </div>
               @endif
 
               <div class="item-container">
                 <p class="label">エリア</p>
-                <select name="area" class="select">
+                <select name="area_id" class="select">
                 @foreach($areas as $area)
                   @if($shop->area_id == $area->id)
                     <option value="{{$area->id}}" selected>{{$area->name}}</option>
@@ -65,9 +65,9 @@
                 @endforeach
                 </select>
               </div>
-              @if($errors->has('area'))
+              @if($errors->has('area_id'))
               <div class="error">
-                *{{$errors->first('area')}}
+                *{{$errors->first('area_id')}}
               </div>
               @endif
 
@@ -91,11 +91,11 @@
               </div>
               <div class="item-container">
                 <p class="label">変更したい画像を選択</p>
-                <input type="file" name="imgfile" value="" accept='image/*' onchange="previewImage(this);">
+                <input type="file" name="img_file" value="" accept='image/*' onchange="previewImage(this);">
               </div>
-              @if($errors->has('imgfile'))
+              @if($errors->has('img_file'))
               <div class="error">
-                *{{$errors->first('imgfile')}}
+                *{{$errors->first('img_file')}}
               </div>
               @endif
               <div class="item-container">
