@@ -1,5 +1,3 @@
-<!-- HACK: サーチ部品コンポーネント化 -->
-
 <x-guest-layout>
     <x-slot name="style">
         <link rel="stylesheet" href="{{ asset('css/index.css') }}">

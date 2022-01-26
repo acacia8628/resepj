@@ -28,7 +28,9 @@ class ShopController extends Controller
             $query->where('genre_id', $genre_id);
         }
 
-        $shops = $query->with(["area", "genre", "likes", "reviews"])->paginate(12);
+        $shops = $query->with(["area", "genre", "likes", "reviews"])
+            ->where('public', 1) //0=private, 1=public
+            ->paginate(12);
         $genres = Genre::all();
         $areas = Area::all();
 

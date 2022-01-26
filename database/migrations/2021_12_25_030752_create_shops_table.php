@@ -26,6 +26,7 @@ class CreateShopsTable extends Migration
                 ->onDelete('cascade')
                 ->default(null);
             $table->unique(['user_id']);
+            $table->tinyInteger('public')->default(0); //0=private, 1=public
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });
