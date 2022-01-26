@@ -85,7 +85,7 @@ Route::prefix('admin')->middleware(['auth', 'can:isAdmin'])->group(function () {
     ]);
 });
 
-Route::prefix('manager')->middleware(['auth', 'can:isShopManager'])->group(function () {
+Route::prefix('manager')->middleware(['auth', 'can:isShopManager', 'verified'])->group(function () {
     Route::get('/', [ManagerLoginController::class, 'index'])->name(
         'manager.index'
     );
