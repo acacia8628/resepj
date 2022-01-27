@@ -36,6 +36,8 @@ class ReserveController extends Controller
         $reserve = Reserve::with(['user', 'shop'])
             ->where('id', $id)
             ->first();
+
+        Reserve::where('id', $id)->update(['status' => 'checked']);
         return view('reserve.detail', ['reserve' => $reserve]);
     }
 

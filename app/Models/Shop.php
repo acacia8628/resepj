@@ -51,7 +51,7 @@ class Shop extends Model
         $current_date = Carbon::now()->format('Y-m-d');
 
         foreach ($this->reserves as $reserve) {
-            if ($reserve->user_id == $id && $reserve->reserve_date < $current_date) {
+            if ($reserve->user_id == $id && $reserve->status == 'checked') {
                 array_push($reserves, $reserve->user_id);
             }
         }

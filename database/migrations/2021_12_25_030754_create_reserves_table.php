@@ -20,6 +20,7 @@ class CreateReservesTable extends Migration
             $table->date('reserve_date');
             $table->time('reserve_time');
             $table->integer('reserve_number');
+            $table->string('status')->default('reserved'); // 予約段階=reserved, 来店時QRコードチェック済み=checked
             $table->timestamp('created_at')->useCurrent()->nullable();
             $table->timestamp('updated_at')->useCurrent()->nullable();
         });
