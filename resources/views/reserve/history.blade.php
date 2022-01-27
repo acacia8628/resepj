@@ -1,6 +1,6 @@
 <x-guest-layout>
     <x-slot name="style">
-        <link rel="stylesheet" href="{{ asset('css/reserve_history.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/reserve/history.css') }}">
     </x-slot>
     <x-auth-card>
         <x-slot name="logo">

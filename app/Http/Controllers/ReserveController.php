@@ -31,6 +31,14 @@ class ReserveController extends Controller
         return redirect('done');
     }
 
+    public function show($id)
+    {
+        $reserve = Reserve::with(['user', 'shop'])
+            ->where('id', $id)
+            ->first();
+        return view('reserve.detail', ['reserve' => $reserve]);
+    }
+
     public function edit($id)
     {
         $reserve = Reserve::find($id);
@@ -42,7 +50,7 @@ class ReserveController extends Controller
             'times' => $times,
             'numbers' => $numbers
         ];
-        return view('reserve_edit', $items);
+        return view('reserve.edit', $items);
     }
 
     public function update(ReserveRequest $request, $id)

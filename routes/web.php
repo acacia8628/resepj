@@ -7,6 +7,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminShopController;
@@ -33,6 +34,9 @@ Route::group(['middleware' => ['auth', 'can:isGeneralUser', 'verified']], functi
     ]);
     Route::resource('reviews', ReviewController::class)->only([
         'store', 'update', 'destroy'
+    ]);
+    Route::resource('qrCodes', QrCodeController::class)->only([
+        'show',
     ]);
 });
 
@@ -66,6 +70,10 @@ Route::resource('thanks', ThanksController::class)->only([
 Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
+Route::resource('reserves', ReserveController::class)->only([
+        'show'
+    ]);
+
 
 Route::prefix('admin')->middleware(['auth', 'can:isAdmin', 'verified'])->group(function () {
     Route::get('/', [AdminLoginController::class, 'index'])->name(

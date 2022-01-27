@@ -1,0 +1,72 @@
+.header {
+    padding: 30px 5% 10px;
+}
+.user-name {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+.main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px 5%;
+}
+.reserves-box {
+    width: 48%;
+}
+.reserves-ttl {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.reserve {
+    position: relative;
+    background-color: #1587D3;
+    margin-bottom: 30px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
+    width: 60%;
+}
+.reserve-ttl {
+    display: flex;
+    align-items: center;
+}
+.reserve-ttl__img {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+}
+.reserve-ttl__ttl {
+    color: #fff;
+}
+.table {
+    margin-top: 20px;
+    color: #fff;
+}
+.th,
+.td {
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+}
+@media screen and (max-width: 768px) {
+    .main {
+        display: block;
+    }
+    .reserves-box {
+        margin: 0 auto;
+        width: 70%;
+    }
+    .reserve {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .reserves-box{
+        width: 90%;
+    }
+}

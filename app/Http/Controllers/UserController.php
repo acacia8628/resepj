@@ -39,6 +39,6 @@ class UserController extends Controller
         $items = [
             'reserves' => $reserves,
         ];
-        return view('reserve_history', $items);
+        return view('reserve.history', $items);
     }
 }

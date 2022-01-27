@@ -1,0 +1,18 @@
+.header {
+    padding: 30px 5% 10px;
+}
+.main {
+  position:relative;
+    padding: 50px 5%;
+}
+.qr-ttl{
+  text-align: center;
+  font-size:24px;
+}
+.qr-code{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  margin-top: 200px;
+}

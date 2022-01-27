@@ -74,6 +74,17 @@
 .reserve-edit__button {
     display: block;
     margin-left: auto;
+    margin-bottom: 20px;
+    padding: 5px 10px;
+    background-color: inherit;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.reserve-qr__button {
+    display: block;
+    margin-left: auto;
     padding: 5px 10px;
     background-color: inherit;
     color: #fff;
@@ -222,20 +233,20 @@
     .reserve-history {
         margin-left: auto;
     }
-    .likes-box{
+    .likes-box {
         margin: 0 auto;
         width: 70%;
     }
-    .card{
+    .card {
         width: 100%;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .reserves-box{
+    .reserves-box {
         width: 90%;
     }
-    .likes-box{
+    .likes-box {
         width: 90%;
     }
 }

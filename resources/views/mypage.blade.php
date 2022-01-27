@@ -45,6 +45,10 @@
                     @csrf
                     <button class="reserve-edit__button">変更</button>
                   </form>
+                  <form method="GET" action="{{ route('qrCodes.show', $reserve->id) }}">
+                    @csrf
+                    <button class="reserve-qr__button">QRコードの表示</button>
+                  </form>
                 </div>
                 @endforeach
                 <div class="reserve-history">
