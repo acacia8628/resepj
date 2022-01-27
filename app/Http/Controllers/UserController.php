@@ -5,19 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Reserve;
-use Carbon\Carbon;
 
 class UserController extends Controller
 {
     public function index()
     {
         $user_id = Auth::id();
-        $current_date = Carbon::now()->format('Y-m-d');
 
         $user = User::with(['likes'])->where('id', $user_id)->first();
         $reserves = Reserve::with(['shop'])
             ->where('user_id', $user_id)
-            ->whereDate('reserve_date', '>', $current_date)
+            ->where('status', 'reserved')
             ->get();
 
         $items = [
@@ -29,10 +27,9 @@ class UserController extends Controller
 
     public function show($id)
     {
-        $current_time = Carbon::now()->format('Y-m-d');
         $reserves = Reserve::with(['shop'])
             ->where('user_id', $id)
-            ->whereDate('reserve_date', '<', $current_time)
+            ->where('status', 'checked')
             ->orderBy('reserve_date', 'desc')
             ->get();
 
