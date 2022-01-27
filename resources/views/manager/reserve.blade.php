@@ -6,7 +6,7 @@
     <x-auth-card>
         <x-slot name="logo">
             <header class="header">
-                <x-application-logo/>
+                <x-manager-header/>
             </header>
         </x-slot>
 
