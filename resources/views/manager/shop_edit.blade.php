@@ -102,6 +102,23 @@
                 <p class="label">プレビュー</p>
                 <img id="preview" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" style="max-width:400px;">
               </div>
+
+              <div class="item-container">
+                <p class="label">公開設定</p>
+                <input type="radio" id="public_0" name="public" @if($shop->public == 0) checked @endif value="0">
+                <label for="public_0">
+                  店舗を非公開にする
+                </label>
+                <input type="radio" id="public_1" name="public" @if($shop->public == 1) checked @endif value="1">
+                <label for="public_1">
+                  店舗を公開する
+                </label>
+              </div>
+              @if($errors->has('area_id'))
+              <div class="error">
+                *{{$errors->first('area_id')}}
+              </div>
+              @endif
               <button type="submit" class="button">変更する</button>
             </form>
             <button type="button" onClick="history.back()">戻る</button>
