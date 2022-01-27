@@ -15,7 +15,7 @@ use App\Http\Controllers\Manager\ManagerShopController;
 use App\Http\Controllers\Manager\ManagerReserveController;
 use App\Http\Controllers\Emails\MailSendController;
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+Route::group(['middleware' => ['auth', 'can:isGeneralUser', 'verified']], function () {
     Route::get('/done', [ReserveController::class, 'index'])->name(
         'reserve.index'
     );
@@ -67,7 +67,7 @@ Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
 
-Route::prefix('admin')->middleware(['auth', 'can:isAdmin'])->group(function () {
+Route::prefix('admin')->middleware(['auth', 'can:isAdmin', 'verified'])->group(function () {
     Route::get('/', [AdminLoginController::class, 'index'])->name(
         'admin.index'
     );

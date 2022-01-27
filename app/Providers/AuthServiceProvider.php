@@ -33,8 +33,8 @@ class AuthServiceProvider extends ServiceProvider
             return $user->role === 3;
         });
 
-        /* Gate::define('isGeneralUser', function ($user) {
+        Gate::define('isGeneralUser', function ($user) {
             return $user->role === 5;
-        }); */
+        });
     }
 }
