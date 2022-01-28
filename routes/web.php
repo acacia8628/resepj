@@ -70,10 +70,6 @@ Route::resource('thanks', ThanksController::class)->only([
 Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
-Route::resource('reserves', ReserveController::class)->only([
-        'show'
-    ]);
-
 
 Route::prefix('admin')->middleware(['auth', 'can:isAdmin', 'verified'])->group(function () {
     Route::get('/', [AdminLoginController::class, 'index'])->name(
@@ -109,6 +105,9 @@ Route::prefix('manager')->middleware(['auth', 'can:isShopManager', 'verified'])-
     Route::get('/mails', [MailSendController::class, 'allSend'])->name(
         'manager.allSend'
     );
+    Route::resource('reserves', ReserveController::class)->only([
+        'show'
+    ]);
 });
 
 Route::get('/dashboard', function () {
