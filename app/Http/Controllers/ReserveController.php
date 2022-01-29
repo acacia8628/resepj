@@ -46,16 +46,22 @@ class ReserveController extends Controller
 
     public function edit($id)
     {
-        $reserve = Reserve::find($id);
+        $reserve = Reserve::where('id', $id)
+            ->where('status', 'reserved')
+            ->first();
         $times = config('times');
         $numbers = config('numbers');
 
-        $items = [
-            'reserve' => $reserve,
-            'times' => $times,
-            'numbers' => $numbers
-        ];
-        return view('reserve.edit', $items);
+        if (isset($reserve) && $reserve->user_id == Auth::id()) {
+            $items = [
+                'reserve' => $reserve,
+                'times' => $times,
+                'numbers' => $numbers
+            ];
+            return view('reserve.edit', $items);
+        } else {
+            return redirect('mypage');
+        }
     }
 
     public function update(ReserveRequest $request, $id)
