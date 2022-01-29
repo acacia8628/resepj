@@ -33,13 +33,15 @@ class ReserveController extends Controller
 
     public function show($id)
     {
-        $reserve = Reserve::with(['user', 'shop'])
-            ->where('id', $id)
-            ->first();
-            logger('status',['status'=>$reserve->status]);
+        $reserve = Reserve::with(['user', 'shop'])->where('id', $id)->first();
 
-        Reserve::where('id', $id)->update(['status' => 'checked']);
-        return view('reserve.detail', ['reserve' => $reserve]);
+        if ($reserve->status == 'reserved') {
+            Reserve::where('id', $id)->update(['status' => 'checked']);
+
+            return view('reserve.detail', ['reserve' => $reserve]);
+        } else {
+            return redirect('/manager');
+        }
     }
 
     public function edit($id)
@@ -80,8 +82,8 @@ class ReserveController extends Controller
         $reserve_id = $id;
 
         Reserve::where('id', $reserve_id)
-                ->where('user_id', $user_id)
-                ->delete();
+            ->where('user_id', $user_id)
+            ->delete();
         return redirect('mypage');
     }
 }
