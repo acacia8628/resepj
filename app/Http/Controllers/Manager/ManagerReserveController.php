@@ -15,6 +15,8 @@ class ManagerReserveController extends Controller
         $reserves = Reserve::with(['user'])
             ->where('shop_id', $id)
             ->where('status', 'reserved')
+            ->orderBy('reserve_date', 'asc')
+            ->orderBy('reserve_time', 'asc')
             ->simplePaginate(10);
 
         $items = [
