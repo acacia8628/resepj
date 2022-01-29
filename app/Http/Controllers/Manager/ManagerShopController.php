@@ -22,7 +22,12 @@ class ManagerShopController extends Controller
             'genres' => $genres,
             'areas' => $areas,
         ];
-        return view('manager.shop_edit', $items);
+
+        if (isset($shop) && $shop->user_id == Auth::id()) {
+            return view('manager.shop_edit', $items);
+        } else {
+            return redirect('/manager');
+        }
     }
 
     public function update(ShopEditRequest $request, $id)
@@ -35,7 +40,7 @@ class ManagerShopController extends Controller
         $public = $request->input('public');
 
         if (!empty($request->file('img_file'))) {
-            $img_path = $request->file('img_file')->store('shop_img','public');
+            $img_path = $request->file('img_file')->store('shop_img', 'public');
 
             Shop::where('user_id', $user_id)
                 ->update([
