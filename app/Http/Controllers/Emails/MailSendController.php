@@ -15,21 +15,27 @@ use Mail;
 
 class MailSendController extends Controller
 {
-    public function individualSend(Request $request)
+    public function individualSend(Request $request, $id)
     {
         $manager = Auth::user();
-        $shop_name = $request->input('shop_name');
-        $receive_user_id = $request->input('user_id');
+        $shop = Shop::where('id', $request->shop_id)->first();
+        $reserve = Reserve::with(['user'])
+            ->where('id', $id)
+            ->where('status', 'reserved')
+            ->first();
 
-        $receive_user = User::where('id', $receive_user_id)->first();
-        Config::set('mail.from', [
-            'address' => $manager->email,
-            'name' => $shop_name
-        ]);
+        if (isset($reserve) && $shop->user_id == $manager->id) {
+            Config::set('mail.from', [
+                'address' => $manager->email,
+                'name' => $shop->name
+            ]);
 
-        Mail::to($receive_user)
-            ->send(new SendIndividualToCustomer());
-        return redirect('manager');
+            Mail::to($reserve->user)
+                ->send(new SendIndividualToCustomer());
+            return redirect('manager');
+        } else {
+            return redirect('manager');
+        }
     }
 
     public function allSend(Request $request)
@@ -40,18 +46,22 @@ class MailSendController extends Controller
 
         $reserves = Reserve::with(['user'])
             ->where('shop_id', $shop->id)
-            ->whereDate('reserve_date', '>', $current_date)
+            ->where('status', 'reserved')
             ->get();
 
-        Config::set('mail.from', [
-            'address' => $manager->email,
-            'name' => $shop->name
-        ]);
+        if (isset($reserves[0])) {
+            Config::set('mail.from', [
+                'address' => $manager->email,
+                'name' => $shop->name
+            ]);
 
-        foreach ($reserves as $reserve) {
-            Mail::to($reserve->user)
-            ->send(new SendIndividualToCustomer());
+            foreach ($reserves as $reserve) {
+                Mail::to($reserve->user)
+                    ->send(new SendIndividualToCustomer());
+            }
+            return redirect('manager');
+        } else {
+            return redirect('manager');
         }
-        return redirect('manager');
     }
 }

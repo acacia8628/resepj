@@ -99,7 +99,7 @@ Route::prefix('manager')->middleware(['auth', 'can:isShopManager', 'verified'])-
     Route::resource('managerReserves', ManagerReserveController::class)->only([
         'show'
     ]);
-    Route::get('/mail', [MailSendController::class, 'individualSend'])->name(
+    Route::get('/mail/{reserve_id}', [MailSendController::class, 'individualSend'])->name(
         'manager.individualSend'
     );
     Route::get('/mails', [MailSendController::class, 'allSend'])->name(

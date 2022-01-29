@@ -45,10 +45,9 @@
                     <td class="td">{{$reserve->reserve_number}}人</td>
                   </tr>
                 </table>
-                <form method="GET" action="{{ route('manager.individualSend') }}">
+                <form method="GET" action="{{ route('manager.individualSend', $reserve->id) }}">
                   @csrf
-                  <input type="hidden" name="shop_name" value="{{$reserve->shop->name}}">
-                  <input type="hidden" name="user_id" value="{{$reserve->user_id}}">
+                  <input type="hidden" name="shop_id" value="{{$reserve->shop->id}}">
                   <button class="reserve__button">メールを送信する</button>
                 </form>
               </div>

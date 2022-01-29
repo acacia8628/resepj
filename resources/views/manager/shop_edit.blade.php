@@ -13,14 +13,6 @@
         <div class="content">
           <h2 class="ttl">店舗情報編集</h2>
 
-          @if(!empty($reserves[0]))
-          <form method="GET" action="{{ route('manager.allSend') }}">
-            @csrf
-            <input type="hidden" name="shop_id" value="{{$shop->id}}">
-            <button class="button">予約者全員にメールを送信</button>
-          </form>
-          @endif
-
           <div class="shop-container">
             <form method="POST" action="{{ route('managerShops.update', $shop->id) }}" enctype="multipart/form-data" class="reserve">
               @method('PATCH')
