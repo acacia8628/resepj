@@ -8,19 +8,18 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Mail\SendIndividualToCustomer;
 use App\Models\Reserve;
-use App\Models\User;
 use App\Models\Shop;
 use Carbon\Carbon;
 use Mail;
 
 class MailSendController extends Controller
 {
-    public function individualSend(Request $request, $id)
+    public function individualSend(Request $request)
     {
         $manager = Auth::user();
         $shop = Shop::where('id', $request->shop_id)->first();
         $reserve = Reserve::with(['user'])
-            ->where('id', $id)
+            ->where('id', $request->reserve_id)
             ->where('status', 'reserved')
             ->first();
 

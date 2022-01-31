@@ -14,7 +14,7 @@
             <h2 class="ttl">予約状況</h2>
 
             @if(!empty($reserves[0]))
-            <form method="GET" action="{{ route('manager.allSend') }}">
+            <form method="POST" action="{{ route('manager.allSend') }}">
               @csrf
               <input type="hidden" name="shop_id" value="{{$shop->id}}">
               <button class="button">予約者全員にメールを送信</button>
@@ -45,8 +45,9 @@
                     <td class="td">{{$reserve->reserve_number}}人</td>
                   </tr>
                 </table>
-                <form method="GET" action="{{ route('manager.individualSend', $reserve->id) }}">
+                <form method="POST" action="{{ route('manager.individualSend') }}">
                   @csrf
+                  <input type="hidden" name="reserve_id" value="{{$reserve->id}}">
                   <input type="hidden" name="shop_id" value="{{$reserve->shop->id}}">
                   <button class="reserve__button">メールを送信する</button>
                 </form>

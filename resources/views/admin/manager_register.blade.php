@@ -85,7 +85,7 @@
                 </div>
 
                 <div class="item-container">
-                    <select id="shop" name="shop" class="select-shop">
+                    <select id="shop" name="shop_id" class="select-shop">
                         <option value="">ショップを選択する</option>
                         @foreach($shops as $shop)
                             <option value="{{$shop->id}}">
@@ -94,9 +94,9 @@
                         @endforeach
                     </select>
                 </div>
-                @if($errors->has('shop'))
+                @if($errors->has('shop_id'))
                 <div class="error">
-                    *{{$errors->first('shop')}}
+                    *{{$errors->first('shop_id')}}
                 </div>
                 @endif
 

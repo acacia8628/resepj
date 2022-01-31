@@ -27,7 +27,7 @@ class ManagerRegisterRequest extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'confirmed', 'min:8', 'max:255'],
-            'shop' => ['required']
+            'shop_id' => ['required']
         ];
     }
 
@@ -46,7 +46,7 @@ class ManagerRegisterRequest extends FormRequest
             'password.min' => 'パスワードは8文字以上にしてください',
             'password.max' => 'パスワードは255文字以内にしてください',
             'password.confirmed' => '確認用のパスワードを入力してください',
-            'shop.required' => 'ショップを選択してください',
+            'shop_id.required' => 'ショップを選択してください',
         ];
     }
 }

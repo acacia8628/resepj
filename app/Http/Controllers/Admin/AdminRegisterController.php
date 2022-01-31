@@ -19,7 +19,7 @@ class AdminRegisterController extends Controller
 
     public function store(ManagerRegisterRequest $request)
     {
-        $shop_id = $request->input('shop');
+        $shop_id = $request->input('shop_id');
 
         $user = User::create([
             'name' => $request->name,
