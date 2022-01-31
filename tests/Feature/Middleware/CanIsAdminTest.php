@@ -12,9 +12,7 @@ class CanIsAdminTest extends TestCase
 
     public function test_admin_index_can_be_rendered_by_role_1()
     {
-        $user = User::factory()->create([
-            'role' => 1
-        ]);
+        $user = User::factory()->create(['role' => 1]);
 
         $response = $this->actingAs($user)->get('/admin');
         $response->assertStatus(200);

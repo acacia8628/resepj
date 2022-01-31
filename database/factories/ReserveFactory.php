@@ -4,8 +4,6 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Carbon\Carbon;
-use App\Models\User;
-use App\Models\Shop;
 
 class ReserveFactory extends Factory
 {
