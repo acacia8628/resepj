@@ -24,7 +24,7 @@ class ReviewRequest extends FormRequest
     public function rules()
     {
         return [
-            'shop_id' => ['required', 'string', 'max:255'],
+            'shop_id' => ['required'],
             'score' => ['required', 'numeric'],
             'comment' => ['required', 'string', 'max:255'],
         ];
@@ -34,8 +34,6 @@ class ReviewRequest extends FormRequest
     {
         return [
             'shop_id.required' => 'お店を選択してください',
-            'shop_id.string' => '文字列を入力してください',
-            'shop_id.max' => 'お店は255文字以内で入力してください',
             'score.required' => '評価を選択してください',
             'score.numeric' => '正しく評価してください',
             'comment.required' => 'コメントを入力してください',

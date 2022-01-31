@@ -15,6 +15,7 @@ class ShopController extends Controller
         $shop_name = $request->input('shop_name');
         $area_id = $request->input('area');
         $genre_id = $request->input('genre');
+        logger('shopname',['shopname'=> $shop_name]);
 
         $query = Shop::query();
 

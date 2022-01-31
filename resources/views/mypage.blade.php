@@ -41,7 +41,7 @@
                     <input type="hidden" name="_method" value="DELETE">
                     <input class="reserve-delete__input" type="submit" name="delete" value="{{$reserve->id}}">
                   </form>
-                  <form method="GET" action="{{ route('reserves.edit',$reserve->id) }}" class="reserve-edit">
+                  <form method="GET" action="{{ route('reserves.edit', $reserve->id) }}" class="reserve-edit">
                     @csrf
                     <button class="reserve-edit__button">変更</button>
                   </form>

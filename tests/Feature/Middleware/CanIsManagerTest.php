@@ -27,7 +27,7 @@ class CanIsManagerTest extends TestCase
     public function test_manager_index_can_not_be_rendered_by_guest()
     {
         $response = $this->get('/manager');
-        $response->assertStatus(302);
+        $response->assertRedirect('login');
     }
 
     public function test_manager_index_can_not_be_rendered_by_role_5()

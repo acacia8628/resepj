@@ -21,7 +21,7 @@ class CanIsAdminTest extends TestCase
     public function test_admin_index_can_not_be_rendered_by_guest()
     {
         $response = $this->get('/admin');
-        $response->assertStatus(302);
+        $response->assertRedirect('login');
     }
 
     public function test_admin_index_can_not_be_rendered_by_role_5()

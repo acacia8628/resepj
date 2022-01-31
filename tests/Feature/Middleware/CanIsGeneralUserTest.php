@@ -3,7 +3,6 @@
 namespace Tests\Feature\Middleware;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 use App\Models\User;
 
@@ -25,7 +24,7 @@ class CanIsGeneralUserTest extends TestCase
     {
         $response = $this->get('/mypage');
 
-        $response->assertStatus(302);
+        $response->assertRedirect('login');
     }
 
     public function test_mypage_can_not_be_rendered_by_role_1()

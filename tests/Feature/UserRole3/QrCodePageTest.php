@@ -27,7 +27,7 @@ class QrCodePageTest extends TestCase
         $response = $this->actingAs($manager)
             ->get('/manager/reserves/'.$reserve->id);
 
-        $response->assertStatus(302);
+        $response->assertRedirect('manager');
     }
 
     public function test_qr_can_be_rendered_by_role_3_with_reserve_is_reserved()

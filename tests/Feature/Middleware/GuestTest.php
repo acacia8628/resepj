@@ -17,7 +17,8 @@ class GuestTest extends TestCase
         ]);
 
         $response = $this->actingAs($user)->get('/admin/login');
-        $response->assertStatus(302);
+        $response->assertRedirect('/');
+
     }
 
     public function test_admin_login_can_be_rendered_by_guest()

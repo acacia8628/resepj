@@ -17,9 +17,6 @@ class ShopRegisterTest extends TestCase
         $user = User::factory()->create(['role' => 1]);
         $area = Area::factory()->create(['id' => 1]);
         $genre = Genre::factory()->create(['id' => 1]);
-        logger('area',['area'=>$area->id]);
-        logger('genre', ['genre'=>$genre->id]);
-
 
         $response = $this->actingAs($user)
             ->post('/admin/adminShops', [
