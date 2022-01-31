@@ -33,6 +33,36 @@ php artisan migrate
 php artisan db:seed
 ```
 
+## 注意点
+
+* デフォルトシーダーは次の３つです。「ReserveTableSeeder」と「ReviewTableSeeder」を使用したい場合、ユーザーを１人作成後にデフォルトシーダーをコメントアウトしてから使用してください。
+
+・GenreTableSeeder
+
+・AreaTableSeeder
+
+・ShopTableSeeder
+
+* Gateで権限分けをしています。詳細は「routes/web.php」「app/Providers/AuthServiceProvider.php」を確認してください。
+
+・管理者(role=1) -> 新規店舗、新規店舗代表者の作成
+
+・店舗代表者(role=3) -> 担当店舗の情報更新、予約者へのメール送信
+
+・ユーザー(role=5) -> 予約、お気に入り、マイページの使用など
+
+・ゲスト -> 店舗一覧、詳細、新規ユーザーの作成
+
+* メール送信機能を実装しています。以下のディレクトリにて編集できます。
+
+・app/Console/Commands/SendMailToReserveUser.php
+
+・app/Console/Kernel.php
+
+・app/Mail/ディレクトリ一覧
+
+・resources/views/emails/ディレクトリ一覧
+
 ## 環境
 
 Composer version 2.1.9
@@ -43,7 +73,7 @@ Laravel 8
 
 ## 文責
 
-* 作成者: acacia8628
+作成者: acacia8628
 
 ## ライセンス
 
