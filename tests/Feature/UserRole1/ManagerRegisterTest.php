@@ -13,12 +13,8 @@ class ManagerRegisterTest extends TestCase
 
     public function test_new_manager_can_register_by_role_1()
     {
-        $user = User::factory()->create([
-            'role' => 1
-        ]);
-        $shop = Shop::factory()->create([
-            'id' => 1
-        ]);
+        $user = User::factory()->create(['role' => 1]);
+        $shop = Shop::factory()->create(['id' => 1]);
 
         $response = $this->actingAs($user)
             ->post('/admin/adminRegisters', [

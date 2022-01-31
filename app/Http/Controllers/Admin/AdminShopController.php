@@ -24,8 +24,8 @@ class AdminShopController extends Controller
 
     public function store(ShopRegisterRequest $request)
     {
-        $genre_id = $request->input('genre');
-        $area_id = $request->input('area');
+        $genre_id = $request->input('genre_id');
+        $area_id = $request->input('area_id');
         $name = $request->input('shop_name');
 
         Shop::create([

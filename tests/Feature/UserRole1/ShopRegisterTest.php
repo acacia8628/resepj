@@ -3,20 +3,31 @@
 namespace Tests\Feature\UserRole1;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
+use App\Models\User;
+use App\Models\Area;
+use App\Models\Genre;
 
 class ShopRegisterTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
+    use RefreshDatabase;
+
     public function test_can_register_shop_by_user_role_1()
     {
-        $response = $this->get('/');
+        $user = User::factory()->create(['role' => 1]);
+        $area = Area::factory()->create(['id' => 1]);
+        $genre = Genre::factory()->create(['id' => 1]);
+        logger('area',['area'=>$area->id]);
+        logger('genre', ['genre'=>$genre->id]);
 
-        $response->assertStatus(200);
+
+        $response = $this->actingAs($user)
+            ->post('/admin/adminShops', [
+                'shop_name' => 'Test Shop',
+                'area_id' => $area->id,
+                'genre_id' => $genre->id,
+            ]);
+
+        $response->assertRedirect('admin');
     }
 }

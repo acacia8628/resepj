@@ -14,7 +14,7 @@
             <h2 class="ttl">新規店舗作成画面</h2>
             <form method="POST" action="{{ route('adminShops.store') }}" class="form">
                 @csrf
-                <select id="area" name="area" class="select">
+                <select id="area" name="area_id" class="select">
                     <option value="">店舗のエリアを選択してください</option>
                     @foreach($areas as $area)
                         <option value="{{$area->id}}">
@@ -22,13 +22,13 @@
                         </option>
                     @endforeach
                 </select>
-                @if($errors->has('area'))
+                @if($errors->has('area_id'))
                 <div class="error">
-                    *{{$errors->first('area')}}
+                    *{{$errors->first('area_id')}}
                 </div>
                 @endif
 
-                <select id="genre" name="genre" class="select">
+                <select id="genre" name="genre_id" class="select">
                     <option value="">店舗のジャンルを指定してください</option>
                     @foreach($genres as $genre)
                         <option value="{{$genre->id}}">
@@ -36,9 +36,9 @@
                         </option>
                     @endforeach
                 </select>
-                @if($errors->has('genre'))
+                @if($errors->has('genre_id'))
                 <div class="error">
-                    *{{$errors->first('genre')}}
+                    *{{$errors->first('genre_id')}}
                 </div>
                 @endif
 
