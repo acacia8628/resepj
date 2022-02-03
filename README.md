@@ -18,33 +18,40 @@
 ## 使い方
 
 ```
+git clone https://github.com/ucan-lab/docker-laravel.git
+
 git clone https://github.com/acacia8628/resepj.git
 
-cd resepj
+cd docker-laravel/backend
 
 composer update
 
+make init
+
 .env.example => .env その後.envファイル内編集
+
+make app
 
 php artisan key:generate
 
-php artisan migrate
-
-php artisan db:seed
+php artisan storage:link
 ```
 
 ## 注意点
 
 * デフォルトシーダーは次の３つです。「ReserveTableSeeder」と「ReviewTableSeeder」を使用したい場合、ユーザーを１人作成後にデフォルトシーダーをコメントアウトしてから使用してください。
 
+```
 ・GenreTableSeeder
 
 ・AreaTableSeeder
 
 ・ShopTableSeeder
+```
 
 * Gateで権限分けをしています。詳細は「routes/web.php」「app/Providers/AuthServiceProvider.php」を確認してください。
 
+```
 ・管理者(role=1) -> 新規店舗、新規店舗代表者の作成
 
 ・店舗代表者(role=3) -> 担当店舗の情報更新、予約者へのメール送信
@@ -52,9 +59,11 @@ php artisan db:seed
 ・ユーザー(role=5) -> 予約、お気に入り、マイページの使用など
 
 ・ゲスト -> 店舗一覧、詳細、新規ユーザーの作成
+```
 
 * メール送信機能を実装しています。以下のディレクトリにて編集できます。
 
+```
 ・app/Console/Commands/SendMailToReserveUser.php
 
 ・app/Console/Kernel.php
@@ -62,14 +71,15 @@ php artisan db:seed
 ・app/Mail/ディレクトリ一覧
 
 ・resources/views/emails/ディレクトリ一覧
+```
 
 ## 環境
 
-Composer version 2.1.9
+git version 2.32.0
 
-PHP 7.4.25
+Docker version 20.10.12
 
-Laravel 8
+Docker Compose version v2.2.3
 
 ## 文責
 
