@@ -16,6 +16,7 @@ class UserController extends Controller
         $reserves = Reserve::with(['shop'])
             ->where('user_id', $user_id)
             ->where('status', 'reserved')
+            ->orderBy('reserve_date', 'asc')
             ->get();
 
         $items = [

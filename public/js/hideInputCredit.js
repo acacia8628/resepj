@@ -1,21 +1,15 @@
-var selecterBox = document.getElementById('sample');
+var selecterBox = document.getElementById('credit_input');
 
-    function formSwitch() {
-        check = document.getElementsByClassName('js-check')
-        if (check[0].checked) {
-            selecterBox.style.display = "none";
+function formSwitch() {
+    check = document.getElementsByClassName('payment-check')
+    if (check[0].checked) {
+        selecterBox.style.display = "none";
 
-        } else if (check[1].checked) {
-            selecterBox.style.display = "block";
+    } else if (check[1].checked) {
+        selecterBox.style.display = "block";
 
-        } else {
-            selecterBox.style.display = "none";
-        }
+    } else {
+        selecterBox.style.display = "none";
     }
-    window.addEventListener('load', formSwitch());
-
-function entryChange2(){
-    if(document.getElementById('changeSelect')){
-    id = document.getElementById('changeSelect').value;
 }
-}
+window.addEventListener('load', formSwitch());

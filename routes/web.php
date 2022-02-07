@@ -74,7 +74,7 @@ Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
 Route::resource('courses', CourseController::class)->only([
-    'create', 'store', 'show', 'edit', 'update', 'destroy'
+    'store', 'show', 'edit', 'update', 'destroy'
 ]);
 Route::post('/purchase', function (Request $request) {
     $request->user()->charge(

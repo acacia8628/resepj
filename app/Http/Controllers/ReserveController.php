@@ -16,18 +16,22 @@ class ReserveController extends Controller
     public function store(ReserveRequest $request)
     {
         $user_id = Auth::id();
-        $shop_id = $request->input('shop_id');
-        $r_date = $request->input('r_date');
-        $r_time = $request->input('r_time');
-        $r_number = $request->input('r_number');
 
-        Reserve::create([
+        $reserve = Reserve::create([
             'user_id' => $user_id,
-            'shop_id' => $shop_id,
-            'reserve_date' => $r_date,
-            'reserve_time' => $r_time,
-            'reserve_number' => $r_number,
+            'shop_id' => $request->shop_id,
+            'reserve_date' => $request->r_date,
+            'reserve_time' => $request->r_time,
+            'reserve_number' => $request->r_number,
         ]);
+        $reserve->courses()->attach($request->course_id);
+
+        if($request->rs == 'payment_credit'){
+            $request->user()->charge(
+                $request->price,
+                $request->paymentMethodId
+            );
+        }
         return redirect('done');
     }
 

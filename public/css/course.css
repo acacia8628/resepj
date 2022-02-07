@@ -5,21 +5,21 @@
     display: flex;
     padding-bottom: 50px;
 }
-.detail {
+.course {
     margin: 30px auto 0 5%;
     width: 42%;
 }
-.detail-ttl {
+.course-ttl {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 20px;
 }
-.detail-ttl__ttl-box {
+.course-ttl__ttl-box {
     display: flex;
     align-items: center;
 }
-.detail-ttl__back {
+.course-ttl__back {
     padding: 5px 8px;
     background-color: #fff;
     border: none;
@@ -28,102 +28,29 @@
     margin-right: 15px;
     cursor: pointer;
 }
-.detail-ttl__ttl {
+.course-ttl__ttl {
     font-size: 32px;
 }
-.average-score {
-    display: flex;
-    justify-content: center;
-    align-items: end;
-}
-.average-score-display {
-    margin-right: 5px;
-    font-size: 16px;
-}
-.star-rating {
-    position: relative;
-    width: 5em;
-    height: 1em;
-    font-size: 17px;
-}
-.star-rating-front {
-    position: absolute;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    color: #ffcc33;
-    height: 25px;
-}
-.star-rating-back {
-    color: #ccc;
-}
-.detail-img {
+.course-img {
     width: 100%;
     margin-bottom: 30px;
+    border-radius: 5px;
 }
-.detail-hash {
-    display: flex;
-    margin-bottom: 30px;
-}
-.detail-hash__area,
-.detail-hash__genre {
-    margin: 5px 3px 0 0;
-}
-.detail-overview {
+.course-overview,
+.course-detail {
     line-height: 1.4em;
     margin-bottom: 30px;
 }
-.review-ttl {
+.course-price {
     font-size: 24px;
-    margin-bottom: 30px;
-}
-.review-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #fff;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-    border-radius: 5px;
-    padding: 20px;
-    margin-bottom: 10px;
-    width: 100%;
-}
-.comment{
-    width: 60%;
-    overflow-wrap: break-word;
-}
-.review-no-content {
+    font-weight: bold;
     margin-bottom: 20px;
-}
-.score {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-}
-.score-img-people {
-    width: 25px;
-    height: 25px;
-    margin-right: 10px;
-}
-.review-form {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-}
-.review-form__img {
-    width: 15px;
-    height: 15px;
-}
-.review-form__button {
-    display: inline-block;
-    border: none;
-    cursor: pointer;
+    text-align: right;
 }
 .reserve {
     position: relative;
     background-color: #305dff;
-    height: 80vh;
+    height: 90vh;
     width: 42%;
     margin: 0 5% 0 auto;
     border-radius: 5px;
@@ -165,6 +92,23 @@
     text-align: left;
     font-size: 14px;
 }
+.select-payment {
+    padding: 20px;
+}
+.radio-label {
+    color: #fff;
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 1em;
+}
+.payment-check {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
 .reserve-button {
     position: absolute;
     width: 100%;
@@ -182,17 +126,34 @@
     color: #fff;
     font-size: 16px;
 }
+#card_holder_name {
+    border-radius: 5px 5px 0 0;
+    padding: 12px;
+    height: 3em;
+    width: 100%;
+    border: none;
+    background-color: #fff;
+    box-sizing: border-box;
+}
+#card_element {
+    border-radius: 0 0 5px 5px;
+    padding: 12px;
+    height: 3em;
+    width: 100%;
+    background-color: #fff;
+    box-sizing: border-box;
+}
 @media screen and (max-width: 768px) {
     .content {
         display: block;
     }
-    .detail{
+    .course {
         width: 80%;
         margin: 30px auto;
     }
-    .reserve{
+    .reserve {
         width: 80%;
         margin: 30px auto;
-        height: 50vh;
+        height: 70vh;
     }
 }

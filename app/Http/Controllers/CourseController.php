@@ -10,11 +10,6 @@ use App\Models\Shop;
 
 class CourseController extends Controller
 {
-    public function create()
-    {
-        //
-    }
-
     public function store(CourseAddRequest $request)
     {
         $course_img_path = $request->file('course_img_file')->store('course_img', 'public');

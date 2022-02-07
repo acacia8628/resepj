@@ -9,22 +9,22 @@
             </header>
 
             <div class="content">
-              <div class="detail">
-                <div class="detail-ttl">
-                  <div class="detail-ttl__ttl-box">
-                    <button type="button" onClick="history.back()" class="detail-ttl__back">
+              <div class="course">
+                <div class="course-ttl">
+                  <div class="course-ttl__ttl-box">
+                    <button type="button" onClick="history.back()" class="course-ttl__back">
                       <
                     </button>
-                    <h2 class="detail-ttl__ttl">{{$course->name}}</h2>
+                    <h2 class="course-ttl__ttl">{{$course->name}}</h2>
                   </div>
                 </div>
-                <div class="detail-overview">{{$course->overview}}</div>
-                <img src="{{ asset('storage/'.$course->course_img_path) }}" class="detail-img">
-                <div>{{$course->price}}円</div>
-                <div>{{$course->course_detail}}</div>
+                <div class="course-overview">{{$course->overview}}</div>
+                <img src="{{ asset('storage/'.$course->course_img_path) }}" class="course-img">
+                <div class="course-price">{{$course->price}}円</div>
+                <div class="course-detail">{{$course->course_detail}}</div>
               </div>
 
-              <form method="POST" action="{{ route('reserves.store') }}" class="reserve">
+              <form method="POST" action="{{ route('reserves.store') }}" id="setup-form" class="reserve">
                 @csrf
                 <h2 class="reserve-ttl">予約</h2>
                 <input type="hidden" name="shop_id" value="{{$course->shop->id}}">
@@ -102,43 +102,53 @@
                     <tr>
                       <th class="th">Course</th>
                       <td class="td">
-                        <div id="price_check">{{$course->name}}</div>
+                        <div id="course_check">{{$course->name}}</div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <th class="th">Price</th>
+                      <td class="td">
+                        <div id="price_check">{{$course->price}}円</div>
                       </td>
                     </tr>
                   </table>
                 </div>
-                <div>
-                  <label>
-                    <input class="js-check" type="radio" name="rs" value="payment_store" onclick="formSwitch()" >お店で支払う
+                <div class="select-payment">
+                  <label class="radio-label">
+                    <input id="payment_shop"
+                      class="payment-check"
+                      type="radio"
+                      name="payment_check"
+                      value="payment_shop"
+                      onclick="formSwitch()" checked
+                      >お店で支払う
                   </label>
-                  <label>
-                    <input class="js-check" type="radio" name="rs" value="payment_credit" onclick="formSwitch()">クレジットカードで支払う
+                  <label class="radio-label">
+                    <input id="payment_credit"
+                      class="payment-check"
+                      type="radio"
+                      name="payment_check"
+                      value="payment_credit"
+                      onclick="formSwitch()"
+                      >クレジットカードで支払う
                   </label>
-                  <!-- <div id="sample" class="">
-                    <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">
-                    <div id="card-element"></div>
-                  </div> -->
+                  <div id="credit_input">
+                    <input type="hidden" id="price" name="price" value="">
+                    <input type="hidden" name="course_id" valie="{{$course->id}}">
+                    <input id="card_holder_name" type="text" placeholder="カード名義人" name="card_holder_name">
+                    <div id="card_element"></div>
+                  </div>
                 </div>
-                <button type="submit" class="reserve-button">予約する</button>
+                <button type="submit" id="reserve_btn" class="reserve-button">予約する</button>
               </form>
-              <div class="p-6 bg-white border-b border-gray-200">
-              <h2>購入</h2>
-              <form id="setup-form" action="{{ route('purchase.post') }}" method="post">
-                @csrf
-                <input type="hidden" name="price" value="{{$course->price}}">
-                <input type="hidden" name="course_id" valie="{{$course->id}}">
-                <input id="card-holder-name" type="text" placeholder="カード名義人" name="card-holder-name">
-                <div id="card-element"></div>
-                <button id="card-button">
-                  購入
-                </button>
-              </form>
-            </div>
             </div>
         </x-slot>
     </x-auth-card>
 </x-guest-layout>
-<script src="{{ asset('js/reserve.js') }}"></script>
+<script>
+  const price = {{$course->price}};
+</script>
+<script src="{{ asset('js/reserveWithCourse.js') }}"></script>
 <script src="https://js.stripe.com/v3/"></script>
 <script src="{{ asset('js/stripeProcess.js') }}"></script>
 <script src="{{ asset('js/hideInputCredit.js') }}"></script>
