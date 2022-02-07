@@ -81,12 +81,16 @@
                   <div class="course">
                     <div class="course-name">{{$course->name}}</div>
                     <div class="course-overview">{{$course->overview}}</div>
-                    <img src="{{ asset('storage/'. $course->course_img_path) }}" class="course-img">
-                    <div class="course-price">{{$course->price}}円</div>
-                    <form method="GET" action="{{ route('courses.show',$course->id) }}" class="">
-                      @csrf
-                      <button class="button">詳細を見る</button>
-                    </form>
+                    <div class="course-content">
+                      <img src="{{ asset('storage/'. $course->course_img_path) }}" class="course-img">
+                      <div>
+                        <div class="course-price">{{$course->price}}円</div>
+                        <form method="GET" action="{{ route('courses.show',$course->id) }}" class="">
+                          @csrf
+                          <button class="button">詳細を見る</button>
+                        </form>
+                      </div>
+                    </div>
                   </div>
                   @endforeach
                 @endif
