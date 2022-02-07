@@ -8,6 +8,9 @@ use App\Http\Controllers\ReserveController;
 use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\QrCodeController;
+use App\Http\Controllers\CourseController;
+use Illuminate\Http\Request;
+
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminShopController;
@@ -70,6 +73,17 @@ Route::resource('thanks', ThanksController::class)->only([
 Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
+Route::resource('courses', CourseController::class)->only([
+    'create', 'store', 'show', 'edit', 'update', 'destroy'
+]);
+Route::post('/purchase', function (Request $request) {
+    $request->user()->charge(
+        $request->price,
+        $request->paymentMethodId
+    );
+
+    return redirect('done');
+})->middleware(['auth'])->name('purchase.post');
 
 Route::prefix('admin')->middleware(['auth', 'can:isAdmin', 'verified'])->group(function () {
     Route::get('/', [AdminLoginController::class, 'index'])->name(

@@ -7,6 +7,7 @@ use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
 use App\Models\Review;
+use App\Models\Course;
 
 class ShopController extends Controller
 {
@@ -54,12 +55,14 @@ class ShopController extends Controller
             ->orderBy('score', 'desc')
             ->limit(3)
             ->get();
+        $courses = Course::where('shop_id', $id)->get();
 
         $items = [
             'shop' => $shop,
             'times' => $times,
             'numbers' => $numbers,
             'reviews' => $reviews,
+            'courses' => $courses,
         ];
         return view('detail', $items);
     }

@@ -5,30 +5,26 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reserve extends Model
+class Course extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'user_id',
         'shop_id',
-        'reserve_date',
-        'reserve_time',
-        'reserve_number'
+        'name',
+        'overview',
+        'price',
+        'course_detail',
+        'course_img_path',
     ];
-
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User');
-    }
 
     public function shop()
     {
         return $this->belongsTo('App\Models\Shop');
     }
 
-    public function courses()
+    public function reserves()
     {
-        return $this->belongsToMany('App\Models\Course');
+        return $this->belongsToMany('App\Models\Reserve');
     }
 }

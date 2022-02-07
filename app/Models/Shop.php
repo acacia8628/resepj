@@ -132,4 +132,9 @@ class Shop extends Model
     {
         return $this->hasMany('App\Models\Review');
     }
+
+    public function courses()
+    {
+        return $this->hasMany('App\Models\Course');
+    }
 }

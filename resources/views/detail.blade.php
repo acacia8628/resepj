@@ -74,6 +74,22 @@
                   </form>
                 </div>
                 @endif
+
+                @if(!empty($courses[0]))
+                <h2 class="course-ttl">コース</h2>
+                  @foreach($courses as $course)
+                  <div class="course">
+                    <div class="course-name">{{$course->name}}</div>
+                    <div class="course-overview">{{$course->overview}}</div>
+                    <img src="{{ asset('storage/'. $course->course_img_path) }}" class="course-img">
+                    <div class="course-price">{{$course->price}}円</div>
+                    <form method="GET" action="{{ route('courses.show',$course->id) }}" class="">
+                      @csrf
+                      <button class="button">詳細を見る</button>
+                    </form>
+                  </div>
+                  @endforeach
+                @endif
               </div>
 
               <form method="POST" action="{{ route('reserves.store') }}" class="reserve">

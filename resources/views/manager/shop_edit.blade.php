@@ -113,6 +113,10 @@
               @endif
               <button type="submit" class="button">変更する</button>
             </form>
+            <form method="GET" action="{{ route('courses.edit', $shop->id) }}">
+              @csrf
+              <button class="button">コース情報を編集する</button>
+            </form>
             <button type="button" onClick="history.back()">戻る</button>
           </div>
         </div>

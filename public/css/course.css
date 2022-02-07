@@ -120,21 +120,6 @@
     border: none;
     cursor: pointer;
 }
-.course {
-    padding: 5px 8px;
-    background-color: #fff;
-    border: none;
-    border-radius: 3px;
-    box-shadow: 2px 2px 3px 0 rgba(0, 0, 0, 0.5);
-    margin-right: 15px;
-}
-.course-overview {
-    line-height: 1.4em;
-    margin-bottom: 30px;
-}
-.course-img {
-    width: 400px;
-}
 .reserve {
     position: relative;
     background-color: #305dff;
