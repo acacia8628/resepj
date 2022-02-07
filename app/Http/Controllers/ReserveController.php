@@ -16,6 +16,8 @@ class ReserveController extends Controller
     public function store(ReserveRequest $request)
     {
         $user_id = Auth::id();
+        $course_id = $request->course_id;
+        $payment_method = $request->payment_check;
 
         $reserve = Reserve::create([
             'user_id' => $user_id,
@@ -24,14 +26,21 @@ class ReserveController extends Controller
             'reserve_time' => $request->r_time,
             'reserve_number' => $request->r_number,
         ]);
-        $reserve->courses()->attach($request->course_id);
 
-        if($request->rs == 'payment_credit'){
+        if ($request->payment_check == 'payment_credit') {
+            $reserve->courses()->attach($course_id);
+            $reserve->update([
+                'payment_method' => $payment_method
+            ]);
+
             $request->user()->charge(
                 $request->price,
                 $request->paymentMethodId
             );
+        } elseif ($request->payment_check == 'payment_shop') {
+            $reserve->courses()->attach($request->course_id);
         }
+
         return redirect('done');
     }
 

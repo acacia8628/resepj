@@ -14,7 +14,8 @@ class Reserve extends Model
         'shop_id',
         'reserve_date',
         'reserve_time',
-        'reserve_number'
+        'reserve_number',
+        'payment_method',
     ];
 
     public function user()

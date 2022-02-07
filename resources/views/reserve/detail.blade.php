@@ -33,6 +33,25 @@
                       <th class="th">人数</th>
                       <td class="td">{{$reserve->reserve_number}}人</td>
                     </tr>
+                    @if($reserve->payment_method == 'payment_credit')
+                    <tr>
+                      <th class="th">支払い方法</th>
+                      <td class="td">クレジット払い済み</td>
+                    </tr>
+                    @else
+                    <tr>
+                      <th class="th">支払い方法</th>
+                      <td class="td">お会計</td>
+                    </tr>
+                    @endif
+                    @if(!empty($reserve->courses[0]))
+                    @foreach($reserve->courses as $course)
+                    <tr>
+                      <th class="th">コース名</th>
+                      <td class="td">{{$course->name}}</td>
+                    </tr>
+                    @endforeach
+                    @endif
                   </table>
                 </div>
               </div>

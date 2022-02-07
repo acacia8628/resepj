@@ -27,6 +27,7 @@
               <form method="POST" action="{{ route('reserves.store') }}" id="setup-form" class="reserve">
                 @csrf
                 <h2 class="reserve-ttl">予約</h2>
+                <input type="hidden" name="course_id" value="{{$course->id}}">
                 <input type="hidden" name="shop_id" value="{{$course->shop->id}}">
                 @if($errors->has('shop_id'))
                 <div class="error">
@@ -134,7 +135,6 @@
                   </label>
                   <div id="credit_input">
                     <input type="hidden" id="price" name="price" value="">
-                    <input type="hidden" name="course_id" valie="{{$course->id}}">
                     <input id="card_holder_name" type="text" placeholder="カード名義人" name="card_holder_name">
                     <div id="card_element"></div>
                   </div>
