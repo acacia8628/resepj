@@ -9,8 +9,6 @@ use App\Http\Controllers\ThanksController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\QrCodeController;
 use App\Http\Controllers\CourseController;
-use Illuminate\Http\Request;
-
 use App\Http\Controllers\Admin\AdminLoginController;
 use App\Http\Controllers\Admin\AdminRegisterController;
 use App\Http\Controllers\Admin\AdminShopController;
@@ -40,6 +38,9 @@ Route::group(['middleware' => ['auth', 'can:isGeneralUser', 'verified']], functi
     ]);
     Route::resource('qrCodes', QrCodeController::class)->only([
         'show',
+    ]);
+    Route::resource('courses', CourseController::class)->only([
+        'store'
     ]);
 });
 
@@ -74,16 +75,8 @@ Route::resource('reviews', ReviewController::class)->only([
     'show'
 ]);
 Route::resource('courses', CourseController::class)->only([
-    'store', 'show', 'edit', 'update', 'destroy'
+    'show'
 ]);
-Route::post('/purchase', function (Request $request) {
-    $request->user()->charge(
-        $request->price,
-        $request->paymentMethodId
-    );
-
-    return redirect('done');
-})->middleware(['auth'])->name('purchase.post');
 
 Route::prefix('admin')->middleware(['auth', 'can:isAdmin', 'verified'])->group(function () {
     Route::get('/', [AdminLoginController::class, 'index'])->name(
@@ -121,6 +114,9 @@ Route::prefix('manager')->middleware(['auth', 'can:isShopManager', 'verified'])-
     );
     Route::resource('reserves', ReserveController::class)->only([
         'show'
+    ]);
+    Route::resource('courses', CourseController::class)->only([
+        'edit', 'update', 'destroy'
     ]);
 });
 
