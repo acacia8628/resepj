@@ -28,13 +28,23 @@ composer update
 
 make init
 
-.env.example => .env その後.envファイル内編集
+.env.example => .env
+
+.envファイル内
+
+* MAIL関連編集
+
+* STRIPE関連追加
 
 make app
 
 php artisan key:generate
 
 php artisan storage:link
+
+composer require laravel/cashier
+
+php artisan migrate
 ```
 
 ## 注意点
@@ -80,6 +90,24 @@ git version 2.32.0
 Docker version 20.10.12
 
 Docker Compose version v2.2.3
+
+DockerContainer Structures
+
+* app container
+
+php:8.1-fpm-bullseye
+
+composer:2.1
+
+* web container
+
+nginx:1.20-alpine
+
+node:16-alpine
+
+* db container
+
+mysql/mysql-server:8.0
 
 ## 文責
 
