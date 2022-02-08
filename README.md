@@ -20,15 +20,21 @@
 ```
 git clone https://github.com/ucan-lab/docker-laravel.git
 
-git clone https://github.com/acacia8628/resepj.git
+git clone https://github.com/acacia8628/resepj.git docker-laravel/backend
 
 cd docker-laravel/backend
 
 composer update
 
-make init
+composer require laravel/cashier
 
-.env.example => .env
+cd ..
+
+phpMyAdminが必要であれば「https://qiita.com/ucan-lab/items/a0c8d6d73aca03325362」内の記述を追加
+
+make init（DockerDesktopを立ち上げてから）
+
+backend内.env.example => .env
 
 .envファイル内
 
@@ -42,9 +48,9 @@ php artisan key:generate
 
 php artisan storage:link
 
-composer require laravel/cashier
+php artisan migrate:fresh
 
-php artisan migrate
+php artisan db:seed
 ```
 
 ## 注意点

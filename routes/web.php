@@ -39,9 +39,6 @@ Route::group(['middleware' => ['auth', 'can:isGeneralUser', 'verified']], functi
     Route::resource('qrCodes', QrCodeController::class)->only([
         'show',
     ]);
-    Route::resource('courses', CourseController::class)->only([
-        'store'
-    ]);
 });
 
 Route::group(['middleware' => 'guest'], function () {
@@ -116,7 +113,7 @@ Route::prefix('manager')->middleware(['auth', 'can:isShopManager', 'verified'])-
         'show'
     ]);
     Route::resource('courses', CourseController::class)->only([
-        'edit', 'update', 'destroy'
+        'store', 'edit', 'update', 'destroy'
     ]);
 });
 
