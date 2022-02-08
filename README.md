@@ -52,35 +52,35 @@ php artisan migrate
 * デフォルトシーダーは次の３つです。「ReserveTableSeeder」と「ReviewTableSeeder」を使用したい場合、ユーザーを１人作成後にデフォルトシーダーをコメントアウトしてから使用してください。
 
 ```
-・GenreTableSeeder
+GenreTableSeeder
 
-・AreaTableSeeder
+AreaTableSeeder
 
-・ShopTableSeeder
+ShopTableSeeder
 ```
 
 * Gateで権限分けをしています。詳細は「routes/web.php」「app/Providers/AuthServiceProvider.php」を確認してください。
 
 ```
-・管理者(role=1) -> 新規店舗、新規店舗代表者の作成
+管理者(role=1) -> 新規店舗、新規店舗代表者の作成
 
-・店舗代表者(role=3) -> 担当店舗の情報更新、予約者へのメール送信
+店舗代表者(role=3) -> 担当店舗の情報更新、予約者へのメール送信
 
-・ユーザー(role=5) -> 予約、お気に入り、マイページの使用など
+ユーザー(role=5) -> 予約、お気に入り、マイページの使用など
 
-・ゲスト -> 店舗一覧、詳細、新規ユーザーの作成
+ゲスト -> 店舗一覧、詳細、新規ユーザーの作成
 ```
 
 * メール送信機能を実装しています。以下のディレクトリにて編集できます。
 
 ```
-・app/Console/Commands/SendMailToReserveUser.php
+app/Console/Commands/SendMailToReserveUser.php
 
-・app/Console/Kernel.php
+app/Console/Kernel.php
 
-・app/Mail/ディレクトリ一覧
+app/Mail/ディレクトリ一覧
 
-・resources/views/emails/ディレクトリ一覧
+resources/views/emails/ディレクトリ一覧
 ```
 
 ## 環境
