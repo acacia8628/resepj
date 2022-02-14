@@ -125,7 +125,7 @@
             @endif
             <div class="item-container">
               <p class="label">現在の画像</p>
-              <img src="{{ asset('storage/'.$course->course_img_path) }}" class="img">
+              <img src="{{$course->course_img_path}}" class="img">
             </div>
             <div class="item-container">
               <label class="label" for="course_img_file">コース画像を選択</label>

@@ -8,6 +8,7 @@ use App\Http\Requests\Manager\ShopEditRequest;
 use App\Models\Shop;
 use App\Models\Genre;
 use App\Models\Area;
+use Storage;
 
 class ManagerShopController extends Controller
 {
@@ -40,7 +41,9 @@ class ManagerShopController extends Controller
         $public = $request->input('public');
 
         if (!empty($request->file('img_file'))) {
-            $img_path = $request->file('img_file')->store('shop_img', 'public');
+            $shop_img = $request->file('img_file');
+            $path = Storage::disk('s3')->putFile('shop_img', $shop_img, 'public');
+            $img_path = Storage::disk('s3')->url($path);
 
             Shop::where('user_id', $user_id)
                 ->update([

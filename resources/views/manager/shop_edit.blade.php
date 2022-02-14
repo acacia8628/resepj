@@ -79,7 +79,7 @@
 
               <div class="item-container">
                 <p class="label">現在の画像</p>
-                <img src="{{ asset('storage/'.$shop->img_path) }}" class="img">
+                <img src="{{$shop->img_path}}" class="img">
               </div>
               <div class="item-container">
                 <p class="label">変更したい画像を選択</p>

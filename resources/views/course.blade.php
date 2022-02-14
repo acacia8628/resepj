@@ -19,7 +19,7 @@
                   </div>
                 </div>
                 <div class="course-overview">{{$course->overview}}</div>
-                <img src="{{ asset('storage/'.$course->course_img_path) }}" class="course-img">
+                <img src="{{$course->course_img_path}}" class="course-img">
                 <div class="course-price">{{$course->price}}円</div>
                 <div class="course-detail">{{$course->course_detail}}</div>
               </div>

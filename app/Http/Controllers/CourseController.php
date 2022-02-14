@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Manager\CourseAddRequest;
 use App\Http\Requests\Manager\CourseEditRequest;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Models\Shop;
+use Storage;
 
 class CourseController extends Controller
 {
     public function store(CourseAddRequest $request)
     {
-        $course_img_path = $request->file('course_img_file')->store('course_img', 'public');
+        $course_img = $request->file('course_img_file');
+        $path = Storage::disk('s3')->putFile('course_img', $course_img, 'public');
+        $course_img_path = Storage::disk('s3')->url($path);
 
         Course::create([
             'shop_id' => $request->shop_id,
