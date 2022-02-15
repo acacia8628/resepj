@@ -13,9 +13,6 @@ jobs:
       - checkout
 
       - run: sudo apt update
-      - run:
-          name: Docker php extensions install
-          command: sudo docker-php-ext-install pdo_mysql
 
       - restore_cache:
           keys:
