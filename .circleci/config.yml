@@ -6,9 +6,9 @@ jobs:
       - image: cimg/php:8.1.0
         environment:
           APP_ENV: testing
-          DB_CONNECTION: mysql
+          DB_CONNECTION: mysql_test
           DB_HOST: 127.0.0.1
-          DB_DATABASE: testing
+          DB_DATABASE: resepj_test
           DB_USERNAME: 'root'
           DB_PASSWORD: ''
       - image: cimg/mysql:8.0
