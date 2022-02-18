@@ -13,6 +13,7 @@
 飲食店一覧から気になったお店の詳細を見ることができ、お店の予約をとることができます。
 
 ![飲食店一覧](/public/image/demo-home.png)
+
 ![予約](/public/image/demo-reserve.png)
 
 ## 使い方
@@ -54,16 +55,6 @@ php artisan db:seed
 ```
 
 ## 注意点
-
-* デフォルトシーダーは次の３つです。「ReserveTableSeeder」と「ReviewTableSeeder」を使用したい場合、ユーザーを１人作成後にデフォルトシーダーをコメントアウトしてから使用してください。
-
-```
-GenreTableSeeder
-
-AreaTableSeeder
-
-ShopTableSeeder
-```
 
 * Gateで権限分けをしています。詳細は「routes/web.php」「app/Providers/AuthServiceProvider.php」を確認してください。
 

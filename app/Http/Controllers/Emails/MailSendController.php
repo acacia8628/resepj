@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use App\Mail\SendIndividualToCustomer;
+use App\Mail\SendAllToCustomer;
 use App\Models\Reserve;
 use App\Models\Shop;
 use Carbon\Carbon;
@@ -56,7 +57,7 @@ class MailSendController extends Controller
 
             foreach ($reserves as $reserve) {
                 Mail::to($reserve->user)
-                    ->send(new SendIndividualToCustomer());
+                    ->send(new SendAllToCustomer());
             }
             return redirect('manager');
         } else {
