@@ -4,6 +4,7 @@ namespace Tests\Feature\UserRole3;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Mail\SendIndividualToCustomer;
+use App\Mail\SendAllToCustomer;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 use App\Models\User;
