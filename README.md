@@ -49,7 +49,7 @@ php artisan key:generate
 
 php artisan storage:link
 
-php artisan migrate:fresh
+php artisan migrate
 
 php artisan db:seed
 ```
@@ -78,6 +78,16 @@ app/Console/Kernel.php
 app/Mail/ディレクトリ一覧
 
 resources/views/emails/ディレクトリ一覧
+```
+
+* Docker環境でのテスト未対応です。お手数ですがDocker内ファイルの記述変更を行いテスト対応させるか、下記に近い環境をローカルに作成し実行してください。
+
+```
+Composer version 2.1.9
+
+PHP 7.4.25
+
+Laravel 8
 ```
 
 ## 環境
