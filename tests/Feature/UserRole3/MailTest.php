@@ -94,6 +94,6 @@ class MailTest extends TestCase
                 'shop_id' => $shop->id,
             ]);
 
-        Mail::assertSent(SendIndividualToCustomer::class);
+        Mail::assertSent(SendAllToCustomer::class);
     }
 }
